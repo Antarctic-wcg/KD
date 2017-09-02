@@ -1,0 +1,10 @@
+  <div class="center">
+    <ul>
+      <li>姓名:<%= info.name %></li>
+      <li>性别:<% if(info.sex == '女'){ %> 女 <% }else{ %> 男 <% } %></li>
+      <li>邮箱:<%= info.email %></li>
+      <li>电话号码:<%= info.phone %></li>
+      <li>个人简介:<%= info.profile %></li>
+      <li><button type="button" onclick="location='./xiu'">修改</button></li>
+    </ul>
+  </div>

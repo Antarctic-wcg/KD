@@ -14,6 +14,18 @@ $(function(){
     };
   });
 
+  $('nav .nav .user').hover(function(){
+    $('nav .nav .user .user_info').stop().slideDown();
+  },function(){
+    $('nav .nav .user .user_info').stop().slideUp();
+  })
+  $('nav .nav .user').click(function(){
+    $('nav .nav .user .user_info').stop().slideDown();
+  });
+  // $(document).click(function(){
+  //   $('nav .nav .user .user_info').stop().slideUp();
+  //   return false;
+  // })
   //导航隐藏
   function dis(){
     if ($(window).width() <= 560) {

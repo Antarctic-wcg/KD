@@ -1,5 +1,8 @@
+ul{
+  list-style: none;
+}
 body{
-
+  overflow-x: hidden;
 }
 img{
   display: inline-block;
@@ -37,4 +40,7 @@ img{
 .con .connect .span span ,.con .connect .span h3{
   color: #fff;
   text-align: center;
+}
+.user{
+  float:left;
 }

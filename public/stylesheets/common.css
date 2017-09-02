@@ -3,13 +3,13 @@
   padding:0;
   border:0;
 }
-body{
-  background-color: #eee;
-}
+
 a{
   text-decoration: none;
-  color:#fff;
   font-size: 12px;
+}
+ul{
+  list-style: none;
 }
 nav{
   width:100%;
@@ -22,8 +22,6 @@ nav{
 }
 nav .nav{
   height:50px;
-  margin:0 auto;
-  position: relative;
 }
 nav .nav .logo{
   width:50px;
@@ -40,7 +38,7 @@ nav .nav .logo a img{
 }
 nav .nav .navbar{
   height:50px;
-  margin: -6px 0 0 20px;
+  margin: 2px 0 0 20px;
   display: inline-block;
 }
 nav .nav .navbar ul{
@@ -63,24 +61,24 @@ nav .nav .navbar ul li a:hover{
   font-weight: bold;
 }
 nav .nav .user{
-  position: absolute;
-  right: 10px;
-  top:0px;
-}
-nav .nav .user a{
-  color: #aaa;
-  line-height: 50px;
   padding: 0 20px;
-  display: inline-block;
+  height: 30px;
+  position: absolute;
+  right: 10%;
+  top:30%;
+  text-align: center;
+  line-height: 30px;
+  cursor:pointer;
 }
-nav .nav .user a:hover {
-  color: #55d6e8;
-  text-decoration: none;
-  font-weight:bold;
+nav .nav .user .user_info{
+  position: absolute;
+  left: 0px;
+  top:30px;
+  display: none;
 }
 .nav_border{
   position: absolute;
-  top: 8px;
+  top: 0px;
   padding: 0px 10px;
   z-index: -1;
   display: none;

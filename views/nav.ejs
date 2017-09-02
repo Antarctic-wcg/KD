@@ -1,0 +1,53 @@
+<nav id="nav" class="">
+  <div class="nav row col-md-9 col-md-offset-2">
+    <!-- logo -->
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo.png" alt="">
+      </a>
+    </div>
+    <div class="navbar">
+        <div class="nav_border">
+
+        </div>
+        <ul>
+        <li><a href="/mess" class="nav_one">提问</a></li><li><a href="/quesList">答辩</a></li><li><a href="#">关于我们&nbsp;&gt;&gt;</a></li>
+        </ul>
+    </div>
+
+
+    <!-- user 用户 -->
+    <% if(name){ %>
+    <div class="user">
+      <ul>
+          <li><span class="glyphicon glyphicon-user">欢迎:<%= name %></span>
+            <ul class="user_info">
+              <li><a href="show_zy" class="btn btn-default">个人信息</a></li>
+              <li><a href="#" class="btn btn-default">我的问题</a></li>
+              <li><a href="#" class="btn btn-default">我的回答</a></li>
+              <li><a href="/quesList" class="btn btn-default">&nbsp;&nbsp;&nbsp;答&nbsp;&nbsp;辩&nbsp;&nbsp;&nbsp;</a></li>
+              <li><a href="/mess" class="btn btn-default">&nbsp;&nbsp;&nbsp;提&nbsp;&nbsp;问&nbsp;&nbsp;&nbsp;</a></li>
+              <li><a href="/logout" class="btn btn-default">&nbsp;&nbsp;&nbsp;退&nbsp;&nbsp;出&nbsp;&nbsp;&nbsp;</a></li>
+            </ul>
+          </li>
+
+      </ul>
+    </div>
+    <% }else{ %>
+      <div class="user">
+        <ul>
+          <li><span class="glyphicon glyphicon-user"></span>
+            <ul class="user_info">
+              <li><a href="login_cg" class="btn btn-info">登录</a></li>
+              <li><a href="input_cg" class="btn btn-default">注册</a></li>
+            </ul>
+          </li>
+
+        </ul>
+
+
+      </div>
+    <% } %>
+  </div>
+
+</nav>

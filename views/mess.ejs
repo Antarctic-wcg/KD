@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<head>
+  <title><%= title %></title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/javascripts/jquery-3.0.0.min.js"></script>
+    <!-- 导航条ｊｓ　-->
+    <script type="text/javascript" src="/javascripts/common.js"></script>
+    <!-- 导航条ｃｓｓ -->
+    <link rel="stylesheet" href="/stylesheets/common.css">
+
+<style>
+
+        html,body{
+
+
+        }
+  .btn-select {
+      position: relative;
+      padding: 0;
+      min-width: 236px;
+      width: 100%;
+      border-radius: 0;
+      margin-bottom: 20px;
+  }
+
+  .btn-select .btn-select-value {
+      padding: 6px 12px;
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 34px;
+      text-align: left;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      border-top: none !important;
+      border-bottom: none !important;
+      border-left: none !important;
+  }
+
+  .btn-select .btn-select-arrow {
+      float: right;
+      line-height: 20px;
+      padding: 6px 10px;
+      top: 0;
+  }
+
+  .btn-select ul {
+      display: none;
+      background-color: white;
+      color: black;
+      clear: both;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: none !important;
+      position: absolute;
+      left: -1px;
+      right: -1px;
+      top: 33px;
+      z-index: 999;
+  }
+
+  .btn-select ul li {
+      padding: 3px 6px;
+      text-align: left;
+  }
+
+  .btn-select ul li:hover {
+      background-color: #f4f4f4;
+  }
+
+  .btn-select ul li.selected {
+      color: white;
+  }
+
+  /* info Start */
+  .btn-select.btn-info<style>:hover, .btn-select.btn-info:active, .btn-select.btn-info.active {
+      border-color: #46b8da;
+  }
+
+  .btn-select.btn-info ul li.selected {
+      background-color: #46b8da;
+      color: white;
+  }
+
+  .btn-select.btn-info ul {
+      border: #46b8da 1px solid;
+  }
+
+  .btn-select.btn-info .btn-select-value {
+      background-color: #5bc0de;
+      border: #46b8da 1px solid;
+  }
+
+  .btn-select.btn-info:hover, .btn-select.btn-info.active {
+      background-color: #269abc;
+  }
+  /* info End */
+  .mysel{
+    width: 100%;
+    padding-top:10%;
+    max-width: 500px;
+    opacity: 0.9;
+  }
+  #mysel{
+
+    height: 100%;
+    background: url("/images/question.jpg") no-repeat 50% 50%;
+    background-size: cover;
+    padding: 0 0 325px;
+  }
+
+  textarea{
+    width: 100%;
+    min-width: 250px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    max-width: 500px;
+  }
+  .may{
+    max-width:350px;
+  }
+  .btn{
+    width: 100%;
+    min-width: 250px;
+    max-width: 500px;
+    }
+
+    </style>
+</head>
+
+<html>
+    <body>
+      <%- include nav %>
+      <div id="mysel">
+        <div class=" container mysel">
+          <h3><%= title %></h3>
+          <form class="" action="/mess" method="post">
+            <input type="hidden" name="user_id" value="<%= name %>">
+                    <h5>问题类型:</h5>
+                    <div class="may">
+                      <a class="btn btn-info btn-select text-center " >
+                          <input type="hidden" class="btn-select-input" id="" name="user_label" value="HTML5" />
+                          <span class="btn-select-value">HTML5</span>
+                          <span class='btn-select-arrow glyphicon glyphicon-chevron-down'></span>
+                          <ul>
+                                <li name="user_label" value="CSS3">CSS3</li>
+                              <li name="user_label" value="Javascript" name="user_label">Javascript</li>
+                              <li name="user_label" value="jQuery" name="user_label">jQuery</li>
+                              <li name="user_label" value="Python" name="user_label">Python</li>
+                              <li name="user_label" value="JS框架" name="user_label">JS框架</li>
+                              <li name="user_label" value="React" name="user_label">React</li>
+                              <li name="user_label" value="UI框架" name="user_label">UI框架</li>
+                              <li name="user_label" value="MongoDB" name="user_label">MongoDB</li>
+                              <li name="user_label" value="Express" name="user_label">Express</li>
+                              <li name="user_label" value="Node.js" name="user_label">Node.js</li>
+
+                          </ul>
+                      </a>
+                    </div>
+
+                    <textarea name="user_quiz" id="ques" required rows="10" cols="80" ></textarea><br>
+                    <button type="submit" id="btn" class="btn">提交</button>
+              </form>
+            </div>
+
+
+      </div>
+
+      <script>
+
+        $(document).on('click', '.btn-select', function (e) {
+            e.preventDefault();
+            var ul = $(this).find("ul");
+            if ($(this).hasClass("active")) {
+                if (ul.find("li").is(e.target)) {
+                    var target = $(e.target);
+                    target.addClass("selected").siblings().removeClass("selected");
+                    var value = target.html();
+                    $(this).find(".btn-select-input").val(value);
+                    $(this).find(".btn-select-value").html(value);
+                }
+                ul.hide();
+                $(this).removeClass("active");
+            }
+            else {
+                $('.btn-select').not(this).each(function () {
+                    $(this).removeClass("active").find("ul").hide();
+                });
+                ul.slideDown(300);
+                $(this).addClass("active");
+            }
+        });
+
+        $(document).on('click', function (e) {
+            var target = $(e.target).closest(".btn-select");
+            if (!target.length) {
+                $(".btn-select").removeClass("active").find("ul").hide();
+            }
+        });
+
+
+
+      </script>
+  <%- include footer %>
+    </body>
+
+</html>

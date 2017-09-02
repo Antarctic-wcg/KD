@@ -1,0 +1,76 @@
+
+ul,li{
+  list-style: none;
+}
+
+/*.container{
+  /*width: 450px;*/
+}*/
+
+form {
+  position: relative;
+}
+
+.form{
+  height: 30px;
+}
+
+form button{
+  cursor: pointer;
+  outline-style: none;
+  width: 60px;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  position: absolute;
+  bottom: -25px;
+  right: 15px;
+}
+form button:hover{
+  background: #757574;
+}
+
+.list{
+  /*width: 420px;*/
+  padding: 10px 0 10px 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.list .button{
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  cursor: pointer;
+}
+
+.list .button span{
+  padding-right: 5px;
+}
+
+.list .button button{
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.list .li-width{
+  /*width: 350px;*/
+  padding-top: 5px;
+  word-wrap:break-word;
+  word-break:normal;
+  padding-right: 5px;
+}
+
+.list .u-time{
+  font-size: 12px;
+
+}
+
+.no-val{
+  display: none;
+}
+
+.show{
+  display: block;
+}

@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/retrieve.css' />
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+  </head>
+  <style>
+    .input1{
+      width: 200px;
+      height: 50px;
+      background-color:rgba(0,0,0,0.4);
+      border: 1px solid transparent;
+      color: #ffffff;
+      position: absolute;
+      left: 50%;
+      margin-left: -100px;
+
+    }
+    .input2{
+      width: 200px;
+      height: 50px;
+      background-color:rgba(0,0,0,0.4);
+      border: 1px solid transparent;
+      color: #ffffff;
+      position: absolute;
+      left: 50%;
+      margin-top: 80px;
+      margin-left: -100px;
+
+    }
+   .but{
+     float: right;
+     margin-right: 10%;
+     margin-top: 5%;
+     background-color: #009ac9;
+     border: 1px solid transparent;
+   }
+   a{
+      color: #ffffff;
+   }
+   p{
+     color: red;
+     text-align: center;
+   }
+  </style>
+  <body>
+      <button type="button" name="button" class="but"><a href="#">直接登录</a></button>
+    <form class="" action="reset" method="post">
+      <div class="container">
+        <strong><p><%= err %></p></strong>
+        <input type="text" placeholder="新密码" name="password" value="" class="input1"></input>
+        <input type="text" placeholder="确认密码" name="password2" value="" class="input2"></input>
+        <section>
+          <button id="js-trigger-overlay" type="submit" name="user_id" value="<%= infos %>" >Button Effect</button>
+        </section>
+      </div>
+    </form>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+
+</html>

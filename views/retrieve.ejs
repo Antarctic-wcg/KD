@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/retrieve.css' />
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script src="/javascripts/retrieve.js"></script>
+  </head>
+  <style>
+    select{
+      width: 200px;
+      height: 50px;
+      background-color: #009ac9;
+      border: 1px solid transparent;
+      color: #ffffff;
+      position: absolute;
+      left: 50%;
+      margin-left: -100px;
+    }
+    input{
+      width: 200px;
+      height: 50px;
+      background-color:rgba(0,0,0,0.4);
+      border: 1px solid transparent;
+      color: #ffffff;
+      position: absolute;
+      left: 50%;
+      margin-top: 80px;
+      margin-left: -100px;
+    }
+   p{
+     text-align: center;
+     font-size: 18px;
+     color: red;
+   }
+  </style>
+  <body>
+    <form class="" action="reset" method="post">
+
+      <div class="container">
+        <strong></strong>
+        <select name="" >
+          <option value="对你影响最大的人?">对你影响最大的人?</option>
+          <option value="2">22222222222</option>
+          <option value="3">333333</option>
+          <option value="4">444444</option>
+          <option value="5">555555</option>
+          <option value="6">666666</option>
+        </select>
+        <input type="text" name="" value=""></input>
+        <section>
+          <button id="js-trigger-overlay" type="button" aaa="<%= infos[0].problem %>" bbb="<%= infos[0].answer %>">Button Effect</button>
+        </section>
+      </div>
+    </form>
+
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+      $("button").click(function(){
+      if($('select').val() == $("button").attr('aaa') && $('input').val() == $("button").attr('bbb')){
+        console.log("aaaaaaaaaaaaa");
+        window.location.href='./reset?user_id=<%= infos[0].user_id %>';
+      }else{
+        $("strong").html("<p>问题错误</p>");
+      };
+      });
+    });
+
+    </script>
+  </body>
+</html>

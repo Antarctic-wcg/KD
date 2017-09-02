@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon"href="images/logo.ico">
+    <title><%= title %></title>
+    <style media="screen">
+      *{
+        margin:0 auto;
+        padding: 0;
+        font-weight:bold;
+      }
+      html,body{
+        width:100%;
+        height:100%;
+        background: url('images/background.jpg') center center;
+        background-size: cover;
+      }
+      .box{
+        max-width:392px;
+        padding: 10% 10px 0 30px;
+        margin: 0 auto;
+        color: white;
+      }
+      .box form span{
+        display:inline-block;
+        width:100px;
+        text-align: right;
+        height:40px;
+        line-height: 40px;
+        color: white;
+        font-size: 18px;
+      }
+      input{
+        font-size: 22px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(129, 129, 129, 0.39);
+        background: white;
+        height:32px;
+        width: 100%;
+        max-width:380px;
+        opacity: 0.6;
+
+      }
+      input[type="text"]:focus,input[type="password"]:focus{
+        outline: none;
+        border: 1px solid #b4b4b4;
+        background: rgba(124, 124, 124, 0.9);
+        height: 32px;
+        color:white;
+      }
+      h1{
+        text-align:center;
+        color: #373737;
+        font-size: 38px;
+        text-shadow: 3px 2px 2px white;
+      }
+      button{
+        width:25%;
+        height: 30px;
+        margin-top: 30px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box col-sm-12 col-lg-12">
+      <h1>ARegister</h1>
+      <form class="" action="aregister" method="post">
+        <span>管理员账号:</span><br><input type="text" name="admin_id" value=""><br>
+
+        <span>管理员密码:</span><br><input type="password" name="password" id="password" value=""><br>
+
+        <span>确 认 密 码 :</span><input type="password" name="password2" id="password2" value=""><br>
+
+        <button style="margin-left:15%;" type="submit">添加</button>
+        <button  style="margin-left:15%;" type="reset">重置</button>
+      </form>
+
+      <script type="text/javascript">
+        var blur = document.getElementById("password");
+        var blur2 = document.getElementById("password2");
+
+        blur2.onblur = function(){
+          // console.log(blur2.value,blur.value);
+          if(blur2.value !== blur.value){
+            alert("两次密码输入不统一!");
+            blur2.value = '';
+          }
+        }
+      </script>
+
+    </div>
+  </body>
+</html>
