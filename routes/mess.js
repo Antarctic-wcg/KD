@@ -4,9 +4,9 @@ var db = require('../db');
 var assert = require('assert');
 /* GET home page. */
 router.get('/', function(req, res) {
-
-  res.render('mess', { title: '问题发布',name:req.query.name});
-
+  var value = req.session.name || '';
+  res.render('mess', { title: '问题发布',name:value});
+  console.log(value);
 });
 
 router.post('/',function(req,res){
