@@ -10,7 +10,7 @@
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
     <script src="/javascripts/bootstrap.min.js"></script>
     <!-- <script src="/javascripts/socket.io.slim.js"></script> -->
-    <script src="/javascripts/moment.min.js" charset="utf-8"></script>
+    <!-- <script src="/javascripts/moment.min.js" charset="utf-8"></script> -->
 
     <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -68,7 +68,7 @@
             <input type="hidden" name="users_id" value=<%= name %> >
             <input type="hidden" name="time" id="da" >
 
-            <textarea style="width:100%; max-width:749px;"  name="content" rows="8" cols="30" maxlength="100"></textarea><br>
+            <textarea style="width:100%; max-width:749px;border: 1px solid #ddd;"  name="content" rows="8" cols="30" ></textarea><br>
             <div class="no-val" style="color:red;">内容不能为空!!!</div>
             <button type="submit" id="btn">回复</button>
           </form>
