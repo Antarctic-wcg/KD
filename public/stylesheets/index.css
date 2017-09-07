@@ -2,45 +2,23 @@ ul{
   list-style: none;
 }
 body{
-  overflow-x: hidden;
+  background-color: #eee;
 }
-img{
-  display: inline-block;
-  border: none;
+.container{
+  padding: 0;
 }
-.con .node .span{
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  bottom:0;
-  width: 60%;
+.con{padding-top:50px;}
+.right{
+  height:600px;
+  background-color: #fff;
+  box-shadow: 0 0 10px;
 }
-.con .node .span span ,.con .node .span h3{
-  color: #fff;
-  text-align: center;
+.left{
+  padding: 0
 }
-.con .html5 .span{
-  opacity: 0;
-  position: absolute;
-  left: 3%;
-  top:80%;
-  width: 30%;
-}
-.con .html5 .span span ,.con .html5 .span h3{
-  color: #fff;
-  text-align: center;
-}
-.con .connect .span{
-  opacity: 0;
-  position: absolute;
-  right: -30%;
-  top:10%;
-  width: 60%;
-}
-.con .connect .span span ,.con .connect .span h3{
-  color: #fff;
-  text-align: center;
-}
-.user{
-  float:left;
+.left .left_all{
+  padding: 10px;
+  background-color: #fff;
+  margin-left: 5px;
+  box-shadow: 0 0 10px;
 }

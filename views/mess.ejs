@@ -9,11 +9,11 @@
     <script type="text/javascript" src="/javascripts/common.js"></script>
     <!-- 导航条ｃｓｓ -->
     <link rel="stylesheet" href="/stylesheets/common.css">
-
+    <link rel="shortcut icon"href="images/logo.ico">
 <style>
 
-        html,body{
-
+    html,body{
+        height: 100%;
 
         }
   .btn-select {
@@ -107,7 +107,7 @@
   #mysel{
 
     height: 100%;
-    background: url("/images/question.jpg") no-repeat 50% 50%;
+    background: url("/images/question.jpg") no-repeat 50% 10%;
     background-size: cover;
     padding: 0 0 325px;
   }
@@ -127,6 +127,26 @@
     min-width: 250px;
     max-width: 500px;
     }
+    .tip_qz{
+    height: 25px;
+    }
+    .reglog{
+      width: 100%;
+      position: absolute;
+      max-width:600px;
+      margin-left: -22px;
+      color: rgb(178, 62, 184);
+      font-weight: bold;
+      font-size: 42px;
+      font-family: "微软雅黑";
+      margin-top: 50px;
+      text-align: center;
+    }
+    .reglog a{
+      font-size: 38px;
+      color: blue;
+      text-shadow: -2px 2px 0px #fff;
+    }
 
     </style>
 </head>
@@ -136,17 +156,19 @@
       <%- include nav %>
       <div id="mysel">
         <div class=" container mysel">
-          <h3><%= title %></h3>
+      <% if(name){ %>
           <form class="" action="/mess" method="post">
-            <input type="hidden" name="user_id" value="<%= name %>">
-                    <h5>问题类型:</h5>
+            <input type="hidden" name="user_id" value="<%= name %>"><br><br>
+                    <h3>标题:</h3>
+                    <input type="text" required min="5" max="15" name="user_tip" class="tip_qz col-md-10"><br><br>
+                    <h3>问题类型:</h3>
                     <div class="may">
                       <a class="btn btn-info btn-select text-center " >
                           <input type="hidden" class="btn-select-input" id="" name="user_label" value="HTML5" />
                           <span class="btn-select-value">HTML5</span>
                           <span class='btn-select-arrow glyphicon glyphicon-chevron-down'></span>
                           <ul>
-                                <li name="user_label" value="CSS3">CSS3</li>
+                              <li name="user_label" value="CSS3">CSS3</li>
                               <li name="user_label" value="Javascript" name="user_label">Javascript</li>
                               <li name="user_label" value="jQuery" name="user_label">jQuery</li>
                               <li name="user_label" value="Python" name="user_label">Python</li>
@@ -160,10 +182,20 @@
                           </ul>
                       </a>
                     </div>
-
+                    <h3>您的提问:</h3>
                     <textarea name="user_quiz" id="ques" required rows="10" cols="80" ></textarea><br>
                     <button type="submit" id="btn" class="btn">提交</button>
+
               </form>
+              <% }else{ %>
+                  <div class="reglog">
+                      <p>Sorry, you are not logged in yet</p>
+                      Please<br>
+                      <a href="/login_cg">Login</a>
+                      <br>or<br>
+                      <a href="/input_cg">Register</a>
+                  </div>
+                <% } %>
             </div>
 
 
@@ -204,7 +236,7 @@
 
 
       </script>
-  <%- include footer %>
+      <%- include footer %>
     </body>
 
 </html>
