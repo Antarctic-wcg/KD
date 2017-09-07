@@ -16,7 +16,7 @@ router.post('/',function(req,res){
   user.save(function(err,resulte){
     assert.equal(null,err);
 
-    res.redirect('/mess');
+    res.redirect('/quesList');
   });
 
 });
