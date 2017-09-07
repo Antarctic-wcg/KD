@@ -70,16 +70,23 @@
 
       <div class="row">
         <div class="col-md-8 col-sm-12 col-xs-12">
-          <div >
-          <form class="" action="/show-xq" method="post">
-            <input type="hidden" name="user_id" value=<%=doc._id %> >
-            <input type="hidden" name="users_id" value=<%= name %> >
+          <%  if(name){%>
+              <div >
+              <form class="" action="/show-xq" method="post">
+                <input type="hidden" name="user_id" value=<%=doc._id %> >
+                <input type="hidden" name="users_id" value=<%= name %> >
 
-            <textarea style="width:100%; max-width:749px;border: 1px solid #ddd;"  name="content" rows="8" cols="30" ></textarea><br>
-            <div class="no-val" style="color:red;">内容不能为空!!!</div>
-            <button type="submit" id="btn">回复</button>
-          </form>
-          </div>
+                <textarea style="width:100%; max-width:749px;border: 1px solid #ddd;"  name="content" rows="8" cols="30" ></textarea><br>
+                <div class="no-val" style="color:red;">内容不能为空!!!</div>
+                <button type="submit" id="btn">回复</button>
+              </form>
+              </div>
+          <%  }else{%>
+              <div class="text-center">
+                回答问题 &nbsp; <a href="/login_cg">请登录</a> &nbsp; <a href="/input_cg">注册</a>
+              </div>
+          <%  }%>
+
           </div>
       </div>
 
