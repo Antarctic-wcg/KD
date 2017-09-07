@@ -34,6 +34,7 @@ router.post('/', function(req, res) {
   var id = req.body.user_id;
   console.log('post', id);
   req.body.time =  new Date(Date.now() + (8 * 60 * 60 * 1000));
+  console.log(req.body);
   var pd = new db.problem_details(req.body);
   console.log(pd);
   pd.save(function(err, result){
