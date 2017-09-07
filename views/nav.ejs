@@ -15,19 +15,18 @@
         </ul>
     </div>
 
-
     <!-- user 用户 -->
     <% if(name){ %>
     <div class="user">
       <ul>
-          <li><span class="glyphicon glyphicon-user">欢迎:<%= name %></span>
+          <li><span class="glyphicon glyphicon-user" style="color:orange">欢迎:<%= name %></span>
             <ul class="user_info">
-              <li><a href="show_zy" class="btn btn-default">个人信息</a></li>
-              <li><a href="#" class="btn btn-default">我的问题</a></li>
-              <li><a href="#" class="btn btn-default">我的回答</a></li>
-              <li><a href="/quesList" class="btn btn-default">&nbsp;&nbsp;&nbsp;答&nbsp;&nbsp;辩&nbsp;&nbsp;&nbsp;</a></li>
-              <li><a href="/mess" class="btn btn-default">&nbsp;&nbsp;&nbsp;提&nbsp;&nbsp;问&nbsp;&nbsp;&nbsp;</a></li>
-              <li><a href="/logout" class="btn btn-default">&nbsp;&nbsp;&nbsp;退&nbsp;&nbsp;出&nbsp;&nbsp;&nbsp;</a></li>
+              <li><a href="show_zy" class="btn btn-info">个人信息</a></li>
+              <li><a href="#" class="btn btn-info">我的问题</a></li>
+              <li><a href="#" class="btn btn-info">我的回答</a></li>
+              <li><a href="/quesList" class="btn btn-info">&nbsp;&nbsp;&nbsp;答&nbsp;&nbsp;&nbsp;&nbsp;辩&nbsp;&nbsp;&nbsp;</a></li>
+              <li><a href="/mess" class="btn btn-info">&nbsp;&nbsp;&nbsp;提&nbsp;&nbsp;&nbsp;&nbsp;问&nbsp;&nbsp;&nbsp;</a></li>
+              <li><a href="/logout" class="btn btn-info">&nbsp;&nbsp;&nbsp;退&nbsp;&nbsp;&nbsp;&nbsp;出&nbsp;&nbsp;&nbsp;</a></li>
             </ul>
           </li>
 
@@ -36,9 +35,9 @@
     <% }else{ %>
       <div class="user">
         <ul>
-          <li><span class="glyphicon glyphicon-user"></span>
+          <li><span class="glyphicon glyphicon-user" ></span>
             <ul class="user_info">
-              <li><a href="login_cg" class="btn btn-info">登录</a></li>
+              <li><a href="login_cg" class="btn btn-success">登录</a></li>
               <li><a href="input_cg" class="btn btn-default">注册</a></li>
             </ul>
           </li>
