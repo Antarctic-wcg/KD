@@ -10,7 +10,6 @@
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
     <script src="/javascripts/bootstrap.min.js"></script>
     <!-- <script src="/javascripts/socket.io.slim.js"></script> -->
-    <!-- <script src="/javascripts/moment.min.js" charset="utf-8"></script> -->
 
     <!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -27,21 +26,13 @@
 
         $('#btn').click(function(){
           var value = $('textarea').val();
-          // console.log(value);
           if(!value){
-            // alert('内容不能为空!');
             $('.no-val').addClass('show');
             return false;
           }
         })
 
-        var time = new Date();
-        console.log(time);
-        $('#da').val(time);
-
       })
-
-
 
     </script>
     <%- include head %>
@@ -54,11 +45,28 @@
 
           <h3 style="word-wrap:break-word; word-break:normal;"><%=doc.user_quiz %></h3>
 
-          <div >发布人: <%=doc.user_id %> &nbsp; 关键字: <span style="color:#8755f2;"><%=doc.user_label %></span> </div>
-          <div>发布时间: <%= moment(doc.user_time).zone(-16).format('YYYY-MM-DD') %> &nbsp; <%=  moment(doc.user_time).zone(-16).format('HH:mm:ss') %></div>
+          <div ><span style="font-size:10px;">发布人: <%=doc.user_id %></span> &nbsp; 关键字: <span style="color:#8755f2;"><%=doc.user_label %></span> </div>
+          <div style="font-size:10px;">发布时间: <%= moment(doc.user_time).utcOffset(-16).format('YYYY-MM-DD HH:mm:ss') %> </div>
 
         </div>
       </div><p></p>
+
+      <p class="form"></p>
+
+      <div class="row">
+        <div class="col-md-8 col-sm-12 col-xs-12">
+          <% result.forEach(function(e){ %>
+            <div class="list">
+              <li style="font-size:10px;">回答人:<%= e.users_id %></li>
+              <li class="li-width"><%= e.content %></li><br>
+              <li class="u-time">回复时间:<%= moment(e.time).utcOffset(-16).format('YYYY-MM-DD HH:mm:ss') %> </li>
+              <div class="button"><span><%= e.total %></span><button type="button" class="btn" ><i class="glyphicon glyphicon-thumbs-up" style="color:red;"></i></button></div>
+            </div>
+          <% })%>
+        </div>
+      </div>
+
+      <p class="form"></p>
 
       <div class="row">
         <div class="col-md-8 col-sm-12 col-xs-12">
@@ -66,7 +74,6 @@
           <form class="" action="/show-xq" method="post">
             <input type="hidden" name="user_id" value=<%=doc._id %> >
             <input type="hidden" name="users_id" value=<%= name %> >
-            <input type="hidden" name="time" id="da" >
 
             <textarea style="width:100%; max-width:749px;border: 1px solid #ddd;"  name="content" rows="8" cols="30" ></textarea><br>
             <div class="no-val" style="color:red;">内容不能为空!!!</div>
@@ -74,20 +81,8 @@
           </form>
           </div>
           </div>
-      </div><p class="form"></p>
-
-      <div class="row">
-        <div class="col-md-8 col-sm-12 col-xs-12">
-          <% result.forEach(function(e){ %>
-            <div class="list">
-              <li><%= e.users_id %></li>
-              <li class="li-width"><%= e.content %></li><br>
-              <li class="u-time">回复时间:<%= moment(e.time).format('YYYY-MM-DD') %> <%=  moment(e.time).format('HH:mm:ss') %></li>
-              <div class="button"><span><%= e.total %></span><button type="button" class="btn" ><i class="glyphicon glyphicon-thumbs-up" style="color:red;"></i></button></div>
-            </div>
-          <% })%>
-        </div>
       </div>
+
     </div>
 
   </body>

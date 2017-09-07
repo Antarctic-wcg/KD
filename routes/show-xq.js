@@ -6,7 +6,8 @@ var moment = require('moment');
 // var socket = require('../socket')
 /* GET home page. */
 router.get('/', function(req, res) {
-  var name = req.session.name;
+  var name = req.session.name || null;
+  console.log(name);
   // var name = 'lisi';
   var id = req.query.id;
   // console.log('get', id);
@@ -32,6 +33,7 @@ router.post('/', function(req, res) {
   console.log(req.body);
   var id = req.body.user_id;
   console.log('post', id);
+  req.body.time =  new Date(Date.now() + (8 * 60 * 60 * 1000));
   var pd = new db.problem_details(req.body);
   console.log(pd);
   pd.save(function(err, result){
