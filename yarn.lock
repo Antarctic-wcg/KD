@@ -379,9 +379,9 @@ sliced@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sliced/-/sliced-1.0.1.tgz#0b3a662b5d04c3177b1926bea82b03f837a2ef41"
 
-static-favicon@~1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/static-favicon/-/static-favicon-1.0.2.tgz#7c15920dda2bf33f414b0e60aebbd65cdd2a1d2f"
+static-favicon@^2.0.0-alpha:
+  version "2.0.0-alpha"
+  resolved "https://registry.yarnpkg.com/static-favicon/-/static-favicon-2.0.0-alpha.tgz#cb5c0ff3d4720566ae2e8387f642d56e8c14c694"
 
 string_decoder@0.10:
   version "0.10.31"
