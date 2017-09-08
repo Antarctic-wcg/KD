@@ -38,7 +38,7 @@ nav .nav .logo a img{
 }
 nav .nav .navbar{
   height:50px;
-  margin: 2px 0 0 20px;
+  margin: 2px 0 0 -15px;
   display: inline-block;
 }
 nav .nav .navbar ul{
@@ -64,7 +64,7 @@ nav .nav .user{
   padding: 0 20px;
   height: 30px;
   position: absolute;
-  right: 10%;
+  right: 3%;
   top:30%;
   text-align: center;
   line-height: 30px;

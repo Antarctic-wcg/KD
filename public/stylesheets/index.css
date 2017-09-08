@@ -3,6 +3,7 @@ ul{
 }
 body{
   background-color: #eee;
+  overflow-x:hidden;
 }
 .container{
   padding: 0;
@@ -19,6 +20,5 @@ body{
 .left .left_all{
   padding: 10px;
   background-color: #fff;
-  margin-left: 5px;
   box-shadow: 0 0 10px;
 }

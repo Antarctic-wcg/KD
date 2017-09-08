@@ -8,13 +8,17 @@
     </div>
     <div class="navbar">
         <div class="nav_border">
-
         </div>
         <ul>
         <li><a href="/mess" class="nav_one">提问</a></li><li><a href="/quesList">答辩</a></li><li><a href="#">关于我们&nbsp;&gt;&gt;</a></li>
         </ul>
     </div>
-
+    <div class="input-group col-sm-4 col-sm-offset-6 hidden-xs" id="nav_search" style="position:absolute;left:0;top:5px;">
+        <input type="text" class="form-control" placeholder="Search">
+        <span class="input-group-btn">
+        <button type="submit" class="btn"><span class="fui-search"></span></button>
+        </span>
+    </div>
     <!-- user 用户 -->
     <% if(name){ %>
     <div class="user">
