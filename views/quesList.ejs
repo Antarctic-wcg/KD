@@ -22,7 +22,6 @@
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  <script src="javascripts/moment.min.js"></script>
   <script type="text/javascript" src="/javascripts/common.js"></script>
   <link rel="stylesheet" href="/stylesheets/common.css">
 </head>
@@ -89,8 +88,8 @@
             <div class="question-info">
               <div class="answer-num"></div>
               <div class="question-time">
-                <%= moment(e.user_time).zone(-8).format('YYYY-MM-DD') %> &nbsp;
-                  <%=  moment(e.user_time).zone(-8).format('HH:mm:ss') %>
+                <%= moment(e.user_time).utcOffset(-16).format('YYYY-MM-DD') %> &nbsp;
+                  <%=  moment(e.user_time).utcOffset(-16).format('HH:mm:ss') %>
               </div>
             </div>
           </div>

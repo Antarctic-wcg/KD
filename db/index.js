@@ -44,7 +44,7 @@ var userproblem = new Schema({
   users_id : { type : String}, //回答用户名
   content : { type : String}, //回答内容
   like_id : { type : String, default : ''}, //点赞的用户名
-  like : { type : Boolean, default: true }, //是否点赞
+  like : { type : Array, default: [] }, //是否点赞
   total : { type : Number, default: 0 }, //点赞的总数
   time : { type : Date } //回答的时间
 });
