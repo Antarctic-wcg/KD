@@ -8,19 +8,19 @@ router.get('/', function(req, res) {
 });
 
 router.post('/',function(req,res){
-  console.log(req.body.admin_id);
+  // console.log(req.body.admin_id);
   db.admin.findOne({admin_id:req.body.admin_id},function(err,doc){
-    console.log(doc);
+    // console.log(doc);
 
 
     if(doc !== null){
-      console.log("ok");
+      // console.log("ok");
       if(doc.password === req.body.password){
         req.session.info = doc;
-        db.user.find({},function(er,info){
+        db.user.findOne({},function(er,info){
           req.session.info_ = info;
           assert.equal(er,null);
-          console.log(req.session.info_,req.session.info);
+          // console.log(req.session.info_,req.session.info);
           // res.render('index', { title: 'Admin' });
           res.redirect('/admin');
         });

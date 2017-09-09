@@ -32,7 +32,7 @@ var userSchema = new Schema({
 //发布问题
 var userquestion = new Schema({
   user_id : { type : String}, //用户名
-  user_tip : {type : String},
+  user_tip : {type : String},//标题
   user_label : { type : String, default : ''}, //标签
   user_quiz : { type : String}, //发布的问题
   user_time : { type : Date, default: sj } //提问的时间
