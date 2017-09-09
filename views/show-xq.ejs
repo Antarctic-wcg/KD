@@ -16,13 +16,18 @@
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="https://cdn.bootcss.com/socket.io/2.0.3/socket.io.slim.js"></script>
     <script type="text/javascript">
+      var socket = io();
       $(function(){
         $('#dianzan').click(function(){
-          var tal = Number($("#total").val());
-          tal += 1;
-          $("#total").html(tal);
+          var tal = Number($("#total").html());
 
+          socket.emit('dianzan',{data:tal})
+          socket.on('value',function(data){
+            $("#total").html(data.data.data);
+            console.log(data.data.data);
+          })
         })
 
         $('#btn').click(function(){
@@ -65,7 +70,7 @@
               <li class="u-time">回复时间:<%= moment(e.time).utcOffset(-16).format('YYYY-MM-DD HH:mm:ss') %> </li>
               <div class="button">
 
-                  
+
                   <span id="total"><%= e.total %></span>
                   <button type="button" id="dianzan" class="btn btn-default" style="background:white;border:none;padding:2px; top:0;" ><i class="glyphicon glyphicon-thumbs-up faa-bounce animated-hover"   style="color:red;font-size:22px;"></i></button>
 
@@ -103,5 +108,7 @@
     </div>
 
 <%- include footer %>
+
+
   </body>
 </html>

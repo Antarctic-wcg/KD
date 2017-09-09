@@ -3,23 +3,36 @@ var router = express.Router();
 var assert = require('assert');
 var db = require('../db');
 var moment = require('moment');
+var io = require('../bin/www');
 // var socket = require('../socket')
 /* GET home page. */
+
 router.get('/', function(req, res) {
   var name = req.session.name || null;
   var did = req.session.info_user._id || null;
-  console.log(id);
-  console.log(name);
+  // console.log(id);
+  // console.log(name);
   // var name = 'lisi';
   var id = req.query.id;
   // console.log('get', id);
   db.question_list.findOne({_id: id }, function(err, doc){
     assert.equal(err, null);
-
+    // console.log(socket);
     db.problem_details.find({user_id: id }, function(err, result){
       // console.log(doc);
       assert.equal(err, null);
       // console.log(result);
+      console.log(123,io.socket.sockets);
+      io.socket.sockets.on('connection',function(socket){
+        console.log(socket);
+        console.log('socket');
+        socket.on('dianzan',function(data){
+          console.log(data);
+          data.data +=1;
+          console.log(data);
+          socket.emit('value',{data:data})
+        })
+      })
       res.render('show-xq', { title: '问题详情',doc: doc ,result: result ,moment: moment, name: name, did: did});
     }).sort({_id: -1});
   })
