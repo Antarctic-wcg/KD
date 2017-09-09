@@ -23,16 +23,20 @@ router.get('/', function(req, res) {
       assert.equal(err, null);
       // console.log(result);
       console.log(123,io.socket.sockets);
-      io.socket.sockets.on('connection',function(socket){
-        console.log(socket);
+      var socket;
+      console.log(io.socket);
+      io.socket.sockets.on('connection',function(so){
+        console.log(so);
         console.log('socket');
-        socket.on('dianzan',function(data){
-          console.log(data);
-          data.data +=1;
-          console.log(data);
-          socket.emit('value',{data:data})
-        })
+        so.on('dianzan',function(data){
+            console.log(data);
+            data.data +=1;
+            console.log(data);
+            so.emit('value',{data:data})
+          })
+
       })
+
       res.render('show-xq', { title: '问题详情',doc: doc ,result: result ,moment: moment, name: name, did: did});
     }).sort({_id: -1});
   })
