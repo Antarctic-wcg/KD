@@ -9,37 +9,22 @@ var io = require('../bin/www');
 
 router.get('/', function(req, res) {
   var name = req.session.name || null;
-  var did = req.session.info_user._id || null;
   // console.log(id);
   // console.log(name);
   // var name = 'lisi';
-  var id = req.query.id;
-  // console.log('get', id);
-  db.question_list.findOne({_id: id }, function(err, doc){
-    assert.equal(err, null);
-    // console.log(socket);
-    db.problem_details.find({user_id: id }, function(err, result){
-      // console.log(doc);
+    var id = req.query.id;
+    // console.log('get', id);
+    db.question_list.findOne({_id: id }, function(err, doc){
       assert.equal(err, null);
-      // console.log(result);
-      console.log(123,io.socket.sockets);
-      var socket;
-      console.log(io.socket);
-      io.socket.sockets.on('connection',function(so){
-        console.log(so);
-        console.log('socket');
-        so.on('dianzan',function(data){
-            console.log(data);
-            data.data +=1;
-            console.log(data);
-            so.emit('value',{data:data})
-          })
+      // console.log(socket);
+      db.problem_details.find({user_id: id }, function(err, result){
+        // console.log(doc);
+        assert.equal(err, null);
 
-      })
-
-      res.render('show-xq', { title: '问题详情',doc: doc ,result: result ,moment: moment, name: name, did: did});
-    }).sort({_id: -1});
-  })
+        require('../socket.io');
+        res.render('show-xq', { title: '问题详情',doc: doc ,result: result ,moment: moment, name: name});
+      }).sort({_id: -1});
+    })
 
 });
 

@@ -106,7 +106,7 @@
 
 
 <script type="text/javascript">
-io=io();
+var io=io();
 var total = document.querySelector('#total');
 var dian = document.querySelector('#dianzan');
 io.on('value',function(data){
@@ -119,11 +119,6 @@ dian.onclick = function(){
   var val = total.innerHTML;
   io.emit('dianzan',{data:Number(val)});
   this.onclick = null;
-}
-window.onbeforeunload=function(){
-
-　　alert(123)
-
 }
 </script>
 
