@@ -30,8 +30,16 @@ $(document).ready(function () {
       $('#btt').click(function(){
         $('.hi').eq(1).show().siblings().hide();
       });
-      
+
       $('.dropdown .dropdown-menu li').click(function(){
         $('.hi').eq($(this).index()+1).show().siblings().hide();
       });
+
+        if(Number($('.hi').eq(3).attr('op')) == 1){
+          console.log(Number($('.hi').eq(3).attr('op')));
+          $('.hi').eq(3).show().siblings().hide();
+        }else if(Number($('.hi').eq(4).attr('op')) == 2){
+            console.log(Number($('.hi').eq(4).attr('op')));
+            $('.hi').eq(4).show().siblings().hide();
+        }
 });
