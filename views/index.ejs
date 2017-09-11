@@ -17,11 +17,11 @@
             <div class="right col-sm-9">
                 <% data.forEach(function(ele,index){ %>
                   <div class="row" style="margin:10px auto;background-color:#fff;padding:10px 20px;border-radius:10px;box-shadow:0 0 15px">
-                    <p><h4><a href="/show-xq?id=<%= ele._id %>" style="font-size:20px;">question：<%= ele.user_quiz %></a></h4></p>
-                  <span class="btn btn-warning btn-xs">author:<%= ele.user_id %></span>&nbsp;&nbsp;
-                  <span class="btn btn-info btn-xs">mark:<%= ele.user_label %></span>&nbsp;&nbsp;
-                  <span class="btn btn-inverse btn-xs">time:<%= moment(ele.user_time).format('YYYY-MM-DD h:mm:ss a') %></span>&nbsp;&nbsp;
-                  <span class="btn btn-primary btn-xs">title:<%= ele.user_tip %></span>
+                    <p><h4><a href="/show-xq?id=<%= ele._id %>" style="font-size:20px;"><%= ele.user_quiz %></a></h4></p>
+                  <span class="btn btn-warning btn-xs">提问者:<%= ele.user_id %></span>&nbsp;&nbsp;
+                  <span class="btn btn-info btn-xs">分类:<%= ele.user_label %></span>&nbsp;&nbsp;
+                  <span class="btn btn-inverse btn-xs">时间:<%= moment(ele.user_time).format('YYYY-MM-DD h:mm:ss a') %></span>&nbsp;&nbsp;
+                  <span class="btn btn-primary btn-xs">标题:<%= ele.user_tip %></span>
                   </div>
                 <% }) %>
 
