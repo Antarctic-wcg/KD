@@ -47,7 +47,7 @@
         <div class="col-md-8 col-sm-12 col-xs-12">
           <br>
           <p>标题: <%=doc.user_tip %></p>
-          <h3 style="word-wrap:break-word; word-break:normal;"><%=doc.user_quiz %></h3>
+          <h3 style="word-wrap:break-word; word-break:normal;font-size:20px;"><%=doc.user_quiz %></h3>
 
           <div ><span style="font-size:10px;">发布人: <%=doc.user_id %></span> &nbsp; 标签: <span style="color:#8755f2;"><%=doc.user_label %></span> </div>
           <div style="font-size:10px;">发布时间: <%= moment(doc.user_time).utcOffset(-16).format('YYYY-MM-DD HH:mm:ss') %> </div>
