@@ -16,7 +16,7 @@
           <div class="row col-md-10 col-md-offset-1">
             <div class="right col-sm-9">
                 <% data.forEach(function(ele,index){ %>
-                  <div class="row" style="margin:10px auto;background-color:#fff;padding:10px 20px;border-radius:10px;box-shadow:0 0 15px">
+                  <div class="row" style="margin:10px auto;background-color:#fff;padding:10px 20px;border-radius:10px;box-shadow:0 0 15px;word-wrap:break-word; word-break:normal;">
                     <p><h4><a href="/show-xq?id=<%= ele._id %>" style="font-size:20px;"><%= ele.user_quiz %></a></h4></p>
                   <span class="btn btn-warning btn-xs">提问者:<%= ele.user_id %></span>&nbsp;&nbsp;
                   <span class="btn btn-info btn-xs">分类:<%= ele.user_label %></span>&nbsp;&nbsp;

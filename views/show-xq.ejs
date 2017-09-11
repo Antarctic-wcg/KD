@@ -38,17 +38,26 @@
 
     </script>
     <%- include head %>
+    <style media="screen">
+      .container{
+        padding: 0;
+      }
+      body{
+        padding: 0;
+      }
+    </style>
   </head>
   <body>
 
     <%- include nav %>
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-sm-12 col-xs-12">
+        <div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2">
+          <br>
+          <p>标题: <%=doc.user_tip %></p>
+          <h3 style="word-wrap:break-word; word-break:normal;font-size:20px;"><%=doc.user_quiz %></h3>
 
-          <h3 style="word-wrap:break-word; word-break:normal;"><%=doc.user_quiz %></h3>
-
-          <div ><span style="font-size:10px;">发布人: <%=doc.user_id %></span> &nbsp; 关键字: <span style="color:#8755f2;"><%=doc.user_label %></span> </div>
+          <div ><span style="font-size:10px;">发布人: <%=doc.user_id %></span> &nbsp; 标签: <span style="color:#8755f2;"><%=doc.user_label %></span> </div>
           <div style="font-size:10px;">发布时间: <%= moment(doc.user_time).utcOffset(-16).format('YYYY-MM-DD HH:mm:ss') %> </div>
 
         </div>
@@ -57,7 +66,7 @@
       <p class="form"></p>
 
       <div class="row">
-        <div class="col-md-8 col-sm-12 col-xs-12">
+        <div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2">
           <% result.forEach(function(e){ %>
             <div class="list">
               <li style="font-size:10px;">回答人:<%= e.users_id %></li>
@@ -65,9 +74,9 @@
               <li class="u-time">回复时间:<%= moment(e.time).utcOffset(-16).format('YYYY-MM-DD HH:mm:ss') %> </li>
               <div class="button">
 
-
+                  <input  type="hidden" value=<%= e._id %>>
                   <span id="total"><%= e.total %></span>
-                  <button type="button" id="dianzan" class="btn btn-default" style="background:white;border:none;padding:2px; top:0;" ><i class="glyphicon glyphicon-thumbs-up faa-bounce animated-hover"   style="color:red;font-size:22px;"></i></button>
+                  <button type="button" class="dianzan" class="btn btn-default" style="background:white;border:none;padding:2px; top:0;" ><i class="glyphicon glyphicon-thumbs-up faa-bounce animated-hover"   style="color:red;font-size:22px;"></i></button>
 
               </div>
             </div>
@@ -78,11 +87,11 @@
       <p class="form"></p>
 
       <div class="row">
-        <div class="col-md-8 col-sm-12 col-xs-12">
+        <div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2">
           <%  if(name){%>
               <div >
               <form class="" action="/show-xq" method="post">
-                <input type="hidden" name="user_id" value=<%=doc._id %> >
+                <input  type="hidden" name="user_id" value=<%=doc._id %> >
                 <input type="hidden" name="users_id" value=<%= name %> >
 
 
@@ -101,22 +110,41 @@
       </div><p class="form"></p>
 
     </div>
-
+<div style="width:100%;background-color:#555;height:100px;margin:0;ppadding:0;">
 <%- include footer %>
-
+</div>
 
 <script type="text/javascript">
 var io=io();
-var total = document.querySelector('#total');
-var dian = document.querySelector('#dianzan');
-io.on('value',function(data){
-  total.innerHTML = data.data.data;
-});
-dian.onclick = function(){
-  var val = total.innerHTML;
-  io.emit('dianzan',{data:Number(val)});
-  this.onclick = null;
-}
+// var total = document.querySelector('#total');
+// var dian = document.querySelector('.dianzan');
+// io.on('value',function(data){
+//   console.log(1111111,total.innerHTML);
+//   console.log(22222222,data.data.data);
+//   total.innerHTML = 2;
+// });
+// dian.onclick = function(){
+//   // console.log('onclick');
+//   var val = total.innerHTML;
+//   io.emit('dianzan',{data:Number(val)});
+//   this.onclick = null;
+// }
+$('.dianzan').click(function(){
+  var name = $('input[name=users_id]').val();
+  if(!name){
+    alert('请登录!再点赞');
+  }else{
+
+
+  var val = $(this).siblings('span').html();
+  var id = $(this).siblings('input').val();
+  val++;
+  console.log(val, id);
+  $(this).siblings('span').html(val);
+  $(this).attr('disabled','disabled');
+  io.emit('dianzan',{val:Number(val),id: id,name: name});
+  }
+})
 </script>
 
   </body>

@@ -15,15 +15,14 @@ router.get('/', function(req, res, next) {
   }
   db.question_list.find().sort({'_id': -1}).exec(function(err, doc) {
     if(err) console.log(err);
-    console.log(doc);
-    res.render('quesList', { title: 'TodoList' ,name: req.session.name, data: doc, moment: moment});
+    res.render('quesList', { title: '知晓' ,name: req.session.name, data: doc, moment: moment});
   });
 
   if(req.query.user_label) {
-    db.question_list.find({user_label: req.query.user_label}).sort({'_id': -1}).exec(function(err, doc) {
-      console.log()
-    })
-  }
+  db.question_list.find({user_label: req.query.user_label}).sort({'_id': -1}).exec(function(err, doc) {
+    res.render('quesList', { title: '知晓',　name: req.session.name, data: doc, moment: moment});
+  });
+}
 
 });
 

@@ -1,11 +1,43 @@
+  <form action="xiu_bao" method="post">
+  <div class="center" id="Root">
+    <script type="text/babel">
+    var Input = React.createClass({
+      getInitialState(){
+        return {cuo : '', wu: ''};
+      },
+      haedan(event){
+        event.preventDefault();
+        var answer1 = ReactDOM.findDOMNode(this.refs.answer1).value;
+        var answer = ReactDOM.findDOMNode(this.refs.answer).value;
+        var answer2 = ReactDOM.findDOMNode(this.refs.answer2).value;
+        this.setState({
+          cuo:'',wu:''
+        });
+        if(answer && !(answer1)){
+        this.setState({cuo:'请输入原始密保!'});
+      };
+        if(answer && !(answer === answer2)){
+        this.setState({wu:'两次输入的密保答案不一致'});
+      };
+      },
+      render(){
+        var cuo = this.state.cuo;
+        var wu = this.state.wu;
+        return (
+          <ul>
+          <li>我的密保问题:<%= info.problem %></li>
+          <li>原始密保:<input className="form-control" type="text" ref="answer1" name="answer1"  onChange={this.haedan} /></li>
+          <div className='zi'>{cuo} </div>
+          <li>新密保答案:<input className="form-control" type="text" ref="answer" name="answer"  onChange={this.haedan} /></li>
+          <li>确认密保答案:<input className="form-control" type="text" ref="answer2" name="answer2"  onChange={this.haedan} /></li>
+          <div className='zi'>{wu} </div>
+          <li><button type="submit" className = 'btn btn-info'>提交</button></li>
+          </ul>
+        )
+      }
+    });
 
-
-  <form action="#" method="post">
-  <div class="center">
-    <ul>
-      <li>我的密保问题:<%= info.problem %></li>
-      <li>密保问题:<input id="name" type="text" name="answer" value=""></li>
-      <li><button type="submit">提交</button></li>
-    </ul>
+    ReactDOM.render(<Input />,document.getElementById('Root'));
+    </script>
   </div>
   </form>
