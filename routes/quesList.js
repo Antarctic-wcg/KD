@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
   }
   db.question_list.find().sort({'_id': -1}).exec(function(err, doc) {
     if(err) console.log(err);
-    res.render('quesList', { title: 'TodoList' ,name: req.session.name, data: doc, moment: moment});
+    res.render('quesList', { title: '知晓' ,name: req.session.name, data: doc, moment: moment});
   });
 
   if(req.query.user_label) {

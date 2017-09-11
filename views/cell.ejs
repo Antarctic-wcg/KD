@@ -10,7 +10,7 @@
       <a class="tip" href="/show-xq?id=<%= item._id %>"><%= item.user_tip %> </a>
       <span class="question"><%= item.user_quiz %></span>
     </div>
-    <div class="col-md-3 col-sm-3">
+    <div class="col-md-3 col-sm-3 move">
       <span　class="user"><i class="fa fa-user" aria-hidden="true"></i><%= item.user_id %></span>
       <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><%= moment(item.time).zone(-8).format('MM-DD') %></span>
       <span class="label user_label"><a href="/quesList?user_label=<%= item.user_label %>"><%= item.user_label %></a></span>
