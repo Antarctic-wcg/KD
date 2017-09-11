@@ -14,18 +14,7 @@
   <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/quesList.css">
 
-<<<<<<< HEAD
   <script src="javascripts/moment.min.js"></script>
-=======
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-
-  <!--[if lt IE 9]>
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
->>>>>>> 84037daf6ab0f81a92f925f042583505bfaaab87
   <script type="text/javascript" src="/javascripts/common.js"></script>
   <link rel="stylesheet" href="/stylesheets/common.css">
   <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -46,17 +35,17 @@
     <div class="container">
       <div class="row">
         <ul class="nav nav-tabs label-list">
-      <li role="presentation" class="active"><a href="/quesList/user_label=HTML">HTML </a></li>
+      <li role="presentation" class="active"><a href="/quesList?user_label=HTML5">HTML </a></li>
       <li role="presentation"><a href="/quesList/user_label=CSS">CSS </a></li>
-      <li role="presentation"><a href="/quesList/user_label=Javascript">Javascript </a></li>
-      <li role="presentation"><a href="/quesList/user_label=Jquery">Jquery </a></li>
-      <li role="presentation"><a href="/quesList/user_label=Jquery">Ajax </a></li>
-      <li role="presentation"><a href="/quesList/user_label=Nodejs">Nodejs </a></li>
-      <li role="presentation"><a href="Mongodb">Mongodb </a></li>
-      <li role="presentation"><a href="Mongoose">Mongoose </a></li>
-      <li role="presentation"><a href="/quesList/user_label=React">React </a></li>
-      <li role="presentation"><a href="/quesList/user_label=Python">Python </a></li>
-      <li role="presentation"><a href="/quesList/user_label=UI框架">UI框架 </a></li>
+      <li role="presentation"><a href="/quesList?user_label=Javascript">Javascript </a></li>
+      <li role="presentation"><a href="/quesList?user_label=Jquery">Jquery </a></li>
+      <li role="presentation"><a href="/quesList?user_label=Jquery">Ajax </a></li>
+      <li role="presentation"><a href="/quesList?user_label=Nodejs">Nodejs </a></li>
+      <li role="presentation"><a href="/quesList?user_label=Mongodb">Mongodb </a></li>
+      <li role="presentation"><a href="/quesList?user_label=Mongoose">Mongoose </a></li>
+      <li role="presentation"><a href="/quesList?user_label=React">React </a></li>
+      <li role="presentation"><a href="/quesList?user_label=Python">Python </a></li>
+      <li role="presentation"><a href="/quesList?user_label=UI框架">UI框架 </a></li>
       </ul>
       </div>
       <div class="row">
@@ -70,31 +59,11 @@
 
             </div>
           </div>
-<<<<<<< HEAD
         </div>
         <div class="col-md-3">
           <div class="panel panel-warning">
             <div class="panel-body">
               Basic panel example
-=======
-            <div class="col-xs-3 col-sm-2">
-            <div class="question-tags">
-              <span class="tag-logo"></span>
-              <a class="tag-item" href="#">分类:<%= e.user_label %></a>
-              <a class="tag-item" href="#">
-                <%= e.user_id  %>
-              </a>
-            </div>
-            </div>
-
-            <div class="col-xs-3 col-sm-2">
-            <div class="question-info">
-              <div class="answer-num"></div>
-              <div class="question-time">
-                <%= moment(e.user_time).utcOffset(-16).format('YYYY-MM-DD') %> &nbsp;
-                  <%=  moment(e.user_time).utcOffset(-16).format('HH:mm:ss') %>
-              </div>
->>>>>>> 84037daf6ab0f81a92f925f042583505bfaaab87
             </div>
           </div>
         </div>
