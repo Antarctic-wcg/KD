@@ -3,15 +3,37 @@
   <head>
     <meta charset="utf-8">
     <title>xianshi</title>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheets/head.css">
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.js"></script>
-    <script type="text/javascript" src="javascripts/head.js"></script>
     <%- include head %>
+    <link rel="stylesheet" href="stylesheets/head.css">
+    <script type="text/javascript" src="javascripts/head.js"></script>
   </head>
   <body>
     <%- include nav %>
-    <% include head_zy %>
+    <%- include head_zy %>
+      <script type="text/javascript">
+      function GetQueryString(name)
+      {
+           var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+           var r = window.location.search.substr(1).match(reg);
+           if(r!=null)return  unescape(r[2]); return null;
+      }
+
+        var xiu =GetQueryString("xiu");
+        if(xiu == '1'){
+          alert('修改成功!');
+        }else if(xiu == '2'){
+          alert('修改密码成功!');
+        }else if(xiu == '3'){
+          alert('修改密保成功!');
+        }else if(xiu === '2mi'){
+          alert('修改失败,两次密码输入不一致!');
+        }else if(xiu === '1mi'){
+          alert('修改失败,原始密码不正确!');
+        }else if (xiu === '1bao') {
+          alert('修改失败,原始密保答案不正确!');
+        }else if (xiu === '2bao') {
+          alert('修改失败,两次密保答案输入不一致!');
+        }
+      </script>
   </body>
 </html>

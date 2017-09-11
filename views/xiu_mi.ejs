@@ -1,11 +1,44 @@
-
-  <form action="#" method="post">
-  <div class="center">
-    <ul>
-      <li>原始密码:<input id="name" type="text" name="pas" value=""></li>
-      <li>新密码:<input type="text" name="password" value=""></li>
-      <li>确认密码:<input type="text" name="password1" value=""></li>
-      <li><button type="submit">提交</button></li>
-    </ul>
+  <form action="xiu_mi" method="post">
+  <div class="center" id="root">
+      <script type="text/babel">
+      var Input = React.createClass({
+        getInitialState(){
+          return {pass : '',password : '',password1 : ''};
+        },
+        haedpass(){
+          this.setState({pass : event.target.value});
+        },
+        haedpassword(){
+          this.setState({password : event.target.value});
+        },
+        haedpassword1(){
+          this.setState({password1 : event.target.value});
+        },
+        render(){
+          var pass = this.state.pass;
+          var password = this.state.password;
+          var password1 = this.state.password1;
+          var tu = '';
+          var mi ='';
+          if(password && !(password === password1)){
+            tu = '您输入的两次密码不匹配!';
+          }
+          if(password && !(pass)){
+            mi = '请输入原始密码!';
+          }
+          return(
+            <ul>
+            <li>原始密码: <input type="text" className="form-control" name="pass" value={ pass } onChange={this.haedpass} /></li>
+            <div className='zi'>{mi}</div>
+            <li>新密码: <input type="text" className="form-control" name="password" value={ password } onChange={this.haedpassword} /></li>
+            <li>确认密码: <input type="text" className="form-control" name="password1" value={ password1 } onChange={this.haedpassword1} /></li>
+            <div className='zi'>{tu}</div>
+            <li><button type="submit" className = 'btn btn-info'>提交</button></li>
+            </ul>
+          )
+          }
+          });
+        ReactDOM.render(<Input />,document.getElementById('root'));
+      </script>
   </div>
-  </form>
+</form>

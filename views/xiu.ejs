@@ -1,16 +1,15 @@
-
-  <form action="#" method="post">
+  <form action="xiu" method="post">
   <div class="center">
     <ul>
-      <li>姓名:<input id="name" type="text" name="name" value="<%= info.name %>"></li>
+      <li>姓名:<input id="name"  class="form-control" type="text" name="name" value="<%= info.name %>"></li>
       <li>性别:
         <input type="radio" name="sex" value="男" checked> 男
-        <input type="radio" name="sex" value="女" <% if(info.sex){%> checked <%}%> > 女
+        <input type="radio" name="sex" value="女" <% if(info.sex === '女'){ %> checked <% } %> > 女
       </li>
-      <li>邮箱:<input type="text" name="email" value="<%= info.email %>"></li>
-      <li>电话号码:<input type="text" name="phone" value="<%= info.phone %>"></li>
-      <li>个人简介:<textarea name="name" rows="8" cols="50" value=""><%= info.profile %></textarea></li>
-      <li><button type="submit">提交</button></li>
+      <li>邮箱:<input type="text" class="form-control" name="email" value="<%= info.email %>"></li>
+      <li>电话号码:<input type="text" name="phone" class="form-control" value="<%= info.phone %>"></li>
+      <li>个人简介:<textarea name="profile" class="form-control" rows="8" cols="50" value=""><%= info.profile %></textarea></li>
+      <li><button type="submit" class='btn btn-info'>提交</button></li>
     </ul>
   </div>
   </form>
