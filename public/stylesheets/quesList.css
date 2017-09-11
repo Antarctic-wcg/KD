@@ -58,6 +58,7 @@ span {
 @media screen and (max-width: 768px){
 .show  {
     min-height: 90px;
+    postion: relative;
 }
 .show .title .tip {
   padding-bottom: 0px;
@@ -65,11 +66,28 @@ span {
 .show .question {
   font-size: 9px;
 }
+.show .move {
+  position: absolute;
+  right:0;
+  top: 0;
+  padding: 0;
+  font-size: 10px;
+}
+h1 {
+  font-size: 20px;
+}
+.container .jumbotron p {
+  font-size: 11px;
+}
 }
 /*label*/
 
 .show {
   font-family: 'Arimo', sans-serif;
+}
+
+.row-panel {
+  min-height: 600px;
 }
 
 .jumbotron p{
