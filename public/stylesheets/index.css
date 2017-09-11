@@ -31,6 +31,9 @@ body{
   font-size: 1.3rem;
   font-weight: bold;
 }
+.x_ a:hover{
+  color:#4cdce0;
+}
 .x_ i{
   padding-right:0.5rem;
 }
