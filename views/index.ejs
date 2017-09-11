@@ -20,7 +20,8 @@
                     <p><h4><a href="/show-xq?id=<%= ele._id %>" style="font-size:20px;">question：<%= ele.user_quiz %></a></h4></p>
                   <span class="btn btn-warning btn-xs">author:<%= ele.user_id %></span>&nbsp;&nbsp;
                   <span class="btn btn-info btn-xs">mark:<%= ele.user_label %></span>&nbsp;&nbsp;
-                  <span class="btn btn-inverse btn-xs">time:<%= moment(ele.user_time).format('YYYY-MM-DD h:mm:ss a') %></span>
+                  <span class="btn btn-inverse btn-xs">time:<%= moment(ele.user_time).format('YYYY-MM-DD h:mm:ss a') %></span>&nbsp;&nbsp;
+                  <span class="btn btn-primary btn-xs">title:<%= ele.user_tip %></span>
                   </div>
                 <% }) %>
 
