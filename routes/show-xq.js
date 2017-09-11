@@ -9,6 +9,8 @@ var io = require('../bin/www');
 
 router.get('/', function(req, res) {
   var name = req.session.name || null;
+  // var user_id = req.session.info_user || null;
+  // console.log(user_id);
   // console.log(id);
   // console.log(name);
   // var name = 'lisi';
@@ -21,7 +23,8 @@ router.get('/', function(req, res) {
         // console.log(doc);
         assert.equal(err, null);
 
-        require('../socket.io');
+      var socket = require('../socket.io');
+
         res.render('show-xq', { title: '问题详情',doc: doc ,result: result ,moment: moment, name: name});
       }).sort({_id: -1});
     })
@@ -45,12 +48,12 @@ router.post('/', function(req, res) {
     assert.equal(err,null);
     res.redirect('/show-xq?id='+id);
   })
-
+});
 router.post('/:id',function(req, res){
   console.log(req.params.id);
 })
 
 
-});
+
 
 module.exports = router;
