@@ -110,12 +110,9 @@ var io=io();
 var total = document.querySelector('#total');
 var dian = document.querySelector('#dianzan');
 io.on('value',function(data){
-  console.log(1111111,total.innerHTML);
-  console.log(22222222,data.data.data);
   total.innerHTML = data.data.data;
 });
 dian.onclick = function(){
-  console.log('onclick');
   var val = total.innerHTML;
   io.emit('dianzan',{data:Number(val)});
   this.onclick = null;
