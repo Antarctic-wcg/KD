@@ -27,9 +27,11 @@ $(document).ready(function () {
         $('.hi').eq($(this).index()-1).show().siblings().hide();
       });
 
+      $('#btt').click(function(){
+        $('.hi').eq(1).show().siblings().hide();
+      });
+      
       $('.dropdown .dropdown-menu li').click(function(){
         $('.hi').eq($(this).index()+1).show().siblings().hide();
       });
-
-    
 });

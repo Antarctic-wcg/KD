@@ -9,12 +9,20 @@ router.get('/', function(req, res) {
 });
 
 router.post('/',(req,res) =>{
-  db.user.updateOne(
-    {_id : req.session.id},
-    {$set:{password : req.body.password}},
-    (err,result) =>{
-    assert.equal(err,null);
-    res.redirect('show_zy');
-  });
+  if(req.session.info_user.password === req.body.pass){
+    if(req.body.password === req.body.password1){
+      db.user.updateOne(
+        {_id : req.session.info_user._id},
+        {$set:{password : req.body.password}},
+        (err,result) =>{
+        assert.equal(err,null);
+        res.redirect('show_zy?xiu=2');
+      });
+    }else{
+      res.redirect('show_zy?xiu=2mi');
+    }
+  }else{
+    res.redirect('show_zy?xiu=1mi');
+  }
 });
 module.exports = router;

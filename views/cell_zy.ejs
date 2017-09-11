@@ -1,0 +1,14 @@
+<div class="show">
+<div class="row">
+  <div class="title">
+    <div class="col-md-8 col-sm-8">
+      <a class="tip" href="/show-xq?id=<%= item._id %>">标题:<%= item.user_tip %> </a>
+      <span class="question">内容:<%= item.user_quiz %></span>
+    </div>
+    <div class="col-md-4 col-sm-4">
+      <p><span class="time"><i class="fa fa-clock-o fa-2x" aria-hidden="true">&nbsp;</i><%= moment(item.time).zone(-8).format('YYYY-MM-DD hh:mm:ss') %></span></p>
+      <span class="label user_label"><a href="quesList?user_label=<%= item.user_label %>">标签:<%= item.user_label %></a></span>
+    </div>
+</div>
+</div>
+</div>

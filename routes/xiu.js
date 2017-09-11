@@ -5,10 +5,12 @@ var db = require('../db');
 
 /* GET home page. */
 router.post('/',(req,res) =>{
-  db.user.updateOne({_id : req.query.id},(err,result) =>{
-    assert.equal(err,null);
-    res.redirect('show_zy');
-  });
+  var id = req.session.info_user._id;
+  db.user.updateOne({_id : id},
+    {$set:req.body},
+    (err,result) =>{
+      res.redirect('show_zy?xiu=1');
+    });
 });
 
 router.get('/', function(req, res) {
