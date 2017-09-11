@@ -1,0 +1,22 @@
+<div class="show">
+<div class="row">
+  <div class="title">
+    <div class="col-md-1  dianzan">
+      <span class="label label-danger">点赞</span>
+      <span class="label label-danger">浏览</span>
+
+    </div>
+    <div class="col-md-8 col-sm-8">
+      <a class="tip" href="/show-xq?id=<%= item._id %>"><%= item.user_tip %> </a>
+      <span class="question"><%= item.user_quiz %></span>
+    </div>
+    <div class="col-md-3 col-sm-3 move">
+      <span　class="user"><i class="fa fa-user" aria-hidden="true"></i><%= item.user_id %></span>
+      <span class="time"><i class="fa fa-clock-o" aria-hidden="true"></i><%= moment(item.time).zone(-8).format('MM-DD') %></span>
+      <span class="label user_label"><a href="/quesList?user_label=<%= item.user_label %>"><%= item.user_label %></a></span>
+    </div>
+  <span class="label label-info answer"><a href="/show-xq?id=<%= item._id %>">回复</a></span>
+
+</div>
+</div>
+</div>

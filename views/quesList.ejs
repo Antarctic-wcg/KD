@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <% include head %>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,97 +12,65 @@
   <title>
     <%= title %>
   </title>
-  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/quesList.css">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-
-  <!--[if lt IE 9]>
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+  <script src="javascripts/moment.min.js"></script>
   <script type="text/javascript" src="/javascripts/common.js"></script>
   <link rel="stylesheet" href="/stylesheets/common.css">
+<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
 </head>
 
 <body>
   <%- include nav %>
   <!-- /.navbar -->
-<div class="content">
-
 
   <div class="container">
+      <div class="jumbotron">
+        <h1>知晓</h1>
+        <p>唐 韩愈 《与崔群书》：“仆愚陋无所知晓，然圣人之书，无所不读。”郭小川 《茫茫大海中的小舟》诗：“这个岛呵，离大陆只不过十哩之遥，开天辟地以来，却好像无人知晓。”</p>
+        <p><a class="btn btn-primary btn-lg" href="/mess" role="button">问</a></p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <ul class="nav nav-tabs label-list">
+    <li role="presentation" class="active"><a href="/quesList?user_label=HTML5">HTML</a></li>
+    <li role="presentation"><a href="/quesList?user_label=CSS3">CSS3 </a></li>
+    <li role="presentation"><a href="/quesList?user_label=Javascript">Javascript </a></li>
+    <li role="presentation"><a href="/quesList?user_label=jQuery">jQuery </a></li>
+    <li role="presentation"><a href="/quesList?user_label=Ajax">Ajax </a></li>
+    <li role="presentation"><a href="/quesList?user_label=Node.js">Node.js </a></li>
+    <li role="presentation"><a href="/quesList?user_label=Express">Express </a></li>
+    <li role="presentation"><a href="/quesList?user_label=MongoDB">MongoDB </a></li>
+    <li role="presentation"><a href="/quesList?user_label=Mongoose">Mongoose </a></li>
+    <li role="presentation"><a href="/quesList?user_label=React">React </a></li>
+    <li role="presentation"><a href="/quesList?user_label=Python">Python </a></li>
+    <li role="presentation"><a href="/quesList?user_label=UI框架">UI框架 </a></li>
+    </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-9">
+          <div class="panel panel-primary">
+            <div class="panel-body row-panel">
+              <!-- Table -->
+              <% data.forEach(function(item, index){ %>
+                <%- include('cell', {item: item}) %>
+              <% }) %>
 
-    <div class="pull clearfix">
-      <ul class="clearfix">
-        <li><a href="/quesList/?user_label=HTML5" class="list-group-item active">HTML5</a></li>
-        <li><a href="/quesList/?user_label=CSS3" class="list-group-item">CSS3</a></li>
-        <li><a href="/quesList/?user_label=Javascript" class="list-group-item">Javascript</a></li>
-        <li><a href="/quesList/?user_label=jQuery" class="list-group-item">jQuery</a></li>
-        <li> <a href="/quesList/?user_label=Python" class="list-group-item">Python</a></li>
-        <li><a href="/quesList/?user_label=React" class="list-group-item">React</a></li>
-        <li><a href="/quesList/?user_label=UI框架" class="list-group-item">UI框架</a></li>
-        <li><a href="/quesList/?user_label=JS框架" class="list-group-item">JS框架</a></li>
-        <li><a href="/quesList/?user_label=MongoDB" class="list-group-item">MongoDB</a></li>
-        <li><a href="/quesList/?user_label=Express" class="list-group-item">Express</a></li>
-        <li><a href="/quesList/?user_label=Node.js" class="list-group-item">Node.js</a></li>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-warning">
+            <div class="panel-body">
 
-      </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-  </div>
-
-  <div class="container">
-
-    <div class="row　list-q clearfix">
-      <div class="col-sm-3 col-xs-3 qr"><a href="/queslist"　>全部问题</a></div>
-      <div class="col-sm-3 col-xs-3 qr"><a href="/queslist">悬赏</a></div>
-      <div class="col-sm-3 col-xs-3 qr"><a href="/queslist">热门提问</a></div>
-      <div class="col-sm-3 col-xs-3 qr"><a href="/mess">提问</a></div>
-    </div><br>
-  </div>
-
-  <div class="queslist container">
-      <% datas.forEach(function(e) { %>
-        <div class="row">
-
-          <div class="col-xs-6 col-sm-8 clearfix">
-            <div class="question-title">
-              <a href="/show-xq?id=<%= e._id %>">
-                <%= e.user_quiz %>
-              </a>
-            </div>
-          </div>
-            <div class="col-xs-3 col-sm-2">
-            <div class="question-tags">
-              <span class="tag-logo"></span>
-              <a class="tag-item" href="#">分类:<%= e.user_label %></a>
-              <a class="tag-item" href="#">
-                <%= e.user_id  %>
-              </a>
-            </div>
-            </div>
-
-            <div class="col-xs-3 col-sm-2">
-            <div class="question-info">
-              <div class="answer-num"></div>
-              <div class="question-time">
-                <%= moment(e.user_time).utcOffset(-16).format('YYYY-MM-DD') %> &nbsp;
-                  <%=  moment(e.user_time).utcOffset(-16).format('HH:mm:ss') %>
-              </div>
-            </div>
-          </div>
-          </div>
-
-        <% }) %>
-
-  </div>
-
-
-
-  <script src="/javascripts/quesList.js"></script>
 </div>
 <%- include footer %>
 </body>

@@ -15,15 +15,17 @@
       html,body{
         width:100%;
         height:100%;
-        background: url('images/login_cg.jpeg') center center;
+        background: url('images/login-cg.jpg') center center;
         background-size: cover;
       }
       .box{
         max-width:360px;
-        height: 420px;
+        height: 470px;
         margin: 0 auto;
         padding:50px 50px 0 50px;
-
+        background: rgba(171, 171, 171, 0.25);
+        position: relative;
+        top:10%;
       }
       h1{
         font-size: 58px;
@@ -77,6 +79,9 @@
       button:hover a{
         color: #000;
       }
+      p{
+        width:20%;
+      }
       p a{
         color: white;
         display:block;
@@ -98,4 +103,17 @@
       <p><a href="user">找回密码</a></p>
     </div>
   </body>
+    <script type="text/javascript">
+  function GetQueryString(name)
+  {
+       var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+       var r = window.location.search.substr(1).match(reg);
+       if(r!=null)return  unescape(r[2]); return null;
+  }
+
+    var xiu =GetQueryString("xiu");
+    if(xiu == 'update'){
+      alert('修改密码成功!');
+    }
+  </script>
 </html>

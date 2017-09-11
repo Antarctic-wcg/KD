@@ -16,5 +16,24 @@ body{
 }
 .left .left_all{
   padding: 10px;
-  box-shadow: 0 0 10px;
+}
+.x_{
+  color: orange;
+  padding: 0.3rem;
+  margin: 0.1rem 0.2rem;
+  background-color: #fff;
+  box-shadow: 0 0 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+.x_ a{
+  color: orange;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.x_ a:hover{
+  color:#4cdce0;
+}
+.x_ i{
+  padding-right:0.5rem;
 }
