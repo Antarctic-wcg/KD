@@ -2,7 +2,7 @@
     dbc.forEach(function(el){
 
        if( ele.user_id == el._id){ %>
-          <div class="row" style="margin:10px auto;background-color:#fff;padding:10px 20px;border-radius:10px;box-shadow:0 0 15px">
+          <div class="row" style="margin:10px auto;background-color:#fff;padding:10px 20px;border-radius:10px;box-shadow:0 0 15px;word-wrap:break-word; word-break:normal;">
           <p><h4><a href="/show-xq?id=<%= el._id %>" style="font-size:20px;">
           <%= el.user_quiz %><br/>
           <span class="btn btn-warning btn-xs">提问者:<%= el.user_id %></span>&nbsp;&nbsp;
