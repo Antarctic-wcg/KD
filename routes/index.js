@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
   db.question_list.find({},function(err,data){
     assert.equal(err,null);
     res.render('index', { title: 'Express',name : str,data:data,moment:moment});
-  })
+  }).sort({'user_time':-1})
 });
 
 module.exports = router;
