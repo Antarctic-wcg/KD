@@ -3,24 +3,28 @@ var router = express.Router();
 var assert = require('assert');
 var db = require('../db');
 var moment = require('moment');
+var io = require('../bin/www');
 // var socket = require('../socket')
 /* GET home page. */
+
 router.get('/', function(req, res) {
   var name = req.session.name || null;
-  console.log(name);
+  // console.log(id);
+  // console.log(name);
   // var name = 'lisi';
-  var id = req.query.id;
-  // console.log('get', id);
-  db.question_list.findOne({_id: id }, function(err, doc){
-    assert.equal(err, null);
-
-    db.problem_details.find({user_id: id }, function(err, result){
-      // console.log(doc);
+    var id = req.query.id;
+    // console.log('get', id);
+    db.question_list.findOne({_id: id }, function(err, doc){
       assert.equal(err, null);
-      // console.log(result);
-      res.render('show-xq', { title: '问题详情',doc: doc ,result: result ,moment: moment, name: name});
-    }).sort({_id: -1});
-  })
+      // console.log(socket);
+      db.problem_details.find({user_id: id }, function(err, result){
+        // console.log(doc);
+        assert.equal(err, null);
+
+        require('../socket.io');
+        res.render('show-xq', { title: '问题详情',doc: doc ,result: result ,moment: moment, name: name});
+      }).sort({_id: -1});
+    })
 
 });
 
@@ -41,6 +45,12 @@ router.post('/', function(req, res) {
     assert.equal(err,null);
     res.redirect('/show-xq?id='+id);
   })
+
+router.post('/:id',function(req, res){
+  console.log(req.params.id);
+})
+
+
 });
 
 module.exports = router;

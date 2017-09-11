@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <head>
   <title><%= title %></title>
+
+    <%- include head %>
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="/javascripts/jquery-3.0.0.min.js"></script>
-    <!-- 导航条ｊｓ　-->
-    <script type="text/javascript" src="/javascripts/common.js"></script>
-    <!-- 导航条ｃｓｓ -->
-    <link rel="stylesheet" href="/stylesheets/common.css">
-    <link rel="shortcut icon"href="images/logo.ico">
-    <style>
+<style>
 
         html,body{
             height: 100%;
@@ -100,7 +96,7 @@
       /* info End */
       .mysel{
         width: 100%;
-        padding-top:10%;
+        padding-top:5%;
         max-width: 500px;
         opacity: 0.9;
       }
@@ -122,15 +118,23 @@
       .may{
         max-width:350px;
       }
+      .tip_qz{
+        height: 35px;
+        border-radius: 3px;
+      }
       .btn_qz{
         width: 100%;
         min-width: 250px;
         max-width: 500px;
-        }
-        .tip_qz{
-        height: 35px;
         border-radius: 3px;
+        background:#fff;
         }
+
+        .btn_qz:hover{
+            background: #5bc0de;
+            border-radius: 3px;
+          }
+
         .reglog{
           width: 100%;
           position: absolute;
@@ -140,7 +144,7 @@
           font-weight: bold;
           font-size: 42px;
           font-family: "微软雅黑";
-          margin-top: 50px;
+
           text-align: center;
         }
         .reglog a{
@@ -152,7 +156,9 @@
         .reglog a:hover{
           color: rgb(26, 140, 164);
         }
-
+        .h4_qz{
+          font-size: 18px;
+        }
         </style>
 </head>
 
@@ -164,9 +170,9 @@
       <% if(name){ %>
           <form class="" action="/mess" method="post">
             <input type="hidden" name="user_id" value="<%= name %>"><br><br>
-                    <h3>标题:</h3>
+                    <h4 class="h4_qz">标题:</h4>
                     <input type="text" required min="5" max="15" name="user_tip" class="tip_qz col-md-10"><br><br>
-                    <h3>问题类型:</h3>
+                    <h4 class="h4_qz">问题类型:</h4>
                     <div class="may">
                       <a class="btn btn-info btn-select text-center " >
                           <input type="hidden" class="btn-select-input" id="" name="user_label" value="HTML5" />
@@ -187,14 +193,14 @@
                           </ul>
                       </a>
                     </div>
-                    <h3>您的提问:</h3>
+                    <h4 class="h4_qz">您的提问:</h4>
                     <textarea name="user_quiz" id="ques" required rows="10" cols="80" ></textarea><br>
-                    <button type="submit" id="btn" class="btn_qz">提交</button>
+                    <button type="submit"  class="btn_qz">提交</button>
 
               </form>
               <% }else{ %>
                   <div class="reglog">
-                      <p>Sorry, you are not logged in yet</p>
+                      <p style="font-size:50px">Sorry, you are not logged in yet</p>
                       Please<br>
                       <a href="/login_cg">Login</a>
                       <br>or<br>
