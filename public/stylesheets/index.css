@@ -10,15 +10,11 @@ body{
 }
 .con{padding-top:50px;}
 .right{
-  height:600px;
-  background-color: #fff;
-  box-shadow: 0 0 10px;
 }
 .left{
   padding: 0
 }
 .left .left_all{
   padding: 10px;
-  background-color: #fff;
   box-shadow: 0 0 10px;
 }

@@ -18,17 +18,13 @@
     <![endif]-->
     <script src="https://cdn.bootcss.com/socket.io/2.0.3/socket.io.slim.js"></script>
     <script type="text/javascript">
-      var socket = io();
-      $(function(){
-        $('#dianzan').click(function(){
-          var tal = Number($("#total").html());
 
-          socket.emit('dianzan',{data:tal})
-          socket.on('value',function(data){
-            $("#total").html(data.data.data);
-            console.log(data.data.data);
-          })
-        })
+
+
+
+      $(function(){
+
+
 
         $('#btn').click(function(){
           var value = $('textarea').val();
@@ -37,7 +33,6 @@
             return false;
           }
         })
-        console.log($("#did").val());
 
       })
 
@@ -109,6 +104,23 @@
 
 <%- include footer %>
 
+
+<script type="text/javascript">
+var io=io();
+var total = document.querySelector('#total');
+var dian = document.querySelector('#dianzan');
+io.on('value',function(data){
+  console.log(1111111,total.innerHTML);
+  console.log(22222222,data.data.data);
+  total.innerHTML = data.data.data;
+});
+dian.onclick = function(){
+  console.log('onclick');
+  var val = total.innerHTML;
+  io.emit('dianzan',{data:Number(val)});
+  this.onclick = null;
+}
+</script>
 
   </body>
 </html>
