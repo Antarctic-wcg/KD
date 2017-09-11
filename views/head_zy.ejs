@@ -21,7 +21,9 @@
             <li>
                 <a href="#">我的问题</a>
             </li>
-
+              <li>
+                <a href="#">我的回答</a>
+            </li>
             <li>
                 <a href="#">修改密码</a>
             </li>
@@ -75,13 +77,22 @@
         </div>
 
 
-        <div class="container hi">
+        <div class="container hi"  op=<%= op %>>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset--2">
                   <span id= "jia"> <% include problem %> </span>
                 </div>
             </div>
         </div>
+
+        <div class="container hi"  op=<%= op %>>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset--2">
+                  <span id= "jia"> <% include answer %> </span>
+                </div>
+            </div>
+        </div>
+
 
         <div class="container hi">
             <div class="row">
