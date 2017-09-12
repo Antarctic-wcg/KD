@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');//引入模块
-var url = 'mongodb://10.198.1.213:27017/KD';
-mongoose.connect(url);//链接数据库
+var url = 'mongodb://kd:kd@ds133004.mlab.com:33004/kd';
+mongoose.Promise = global.Promise;
+mongoose.connect(url, {useMongoClient: true});
 //获取文件句柄
 var db = mongoose.connection;
 //获取文件的错误信息
