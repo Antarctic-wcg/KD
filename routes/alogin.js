@@ -16,13 +16,13 @@ router.post('/',function(req,res){
     if(doc !== null){
       // console.log("ok");
       if(doc.password === req.body.password){
-        req.session.info = doc;
+        req.session.admin = doc.admin;
         db.user.findOne({},function(er,info){
-          req.session.info_ = info;
+          req.session.password = doc.password;
           assert.equal(er,null);
           // console.log(req.session.info_,req.session.info);
           // res.render('index', { title: 'Admin' });
-          res.redirect('/admin');
+          res.render('admin', {title: 'admin',admin: req.session.admin });
         });
       }else{
         res.render('alogin', { title: 'Admin',name_err:'',password_err:'密码错误' });

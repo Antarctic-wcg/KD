@@ -1,0 +1,44 @@
+<%- include admin_head %>
+<form action="x_revise" method="post">
+<div class="col-md-10 content">
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%= err %></div>
+  <div class="panel-body">
+    <p class="text-center">修改问题</p>
+    <input type="hidden" name="_id" value="<%= infos._id %>">
+    <input type="hidden" name="user_id" value="<%= infos.user_id %>">
+    <input type="hidden" name="admin" value="<%= admin %>">
+  </div>
+
+
+   <!-- Table -->
+   <table class="table">
+       <tr>
+         <td class="text-center">标题</td>
+         <td class="text-center"><input type="text" name="user_tip" value="<%= infos.user_tip %>"></td>
+       </tr>
+       <tr class="text-center">
+         <td class="text-center">问题</td>
+         <td><input type="text" name="user_quiz" value="<%= infos.user_quiz %>"></td>
+       </tr>
+       <tr class="text-center">
+         <td class="text-center">标签</td>
+         <td><input type="text" name="user_label" value="<%= infos.user_label %>"></td>
+       </tr>
+     </table>
+</div>
+<style>
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+</style>
+<button class="btn btn-default col-center-block btn-info" type="submit" name="user_time" value="<%= infos.user_time %>" >修改</button>
+</div>
+</form>
+
+<%- include admin_footer %>

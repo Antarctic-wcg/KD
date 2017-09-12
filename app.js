@@ -28,7 +28,16 @@ var alogin = require('./routes/alogin');
 var user = require('./routes/retrieve');
 var retrieve = require('./routes/retrieve');
 var reset = require('./routes/reset');
+//后台
 var admin = require('./routes/admin');
+var admin_revise = require('./routes/revise');
+var user_revise = require('./routes/revise');
+var deletes = require('./routes/deletes');
+var admin_add = require('./routes/admin_add');
+var xuser = require('./routes/xuser');
+var x_revise = require('./routes/x_revise');
+var duser = require('./routes/duser');
+var d_revise = require('./routes/d_revise');
 
 
 var app = express();
@@ -75,7 +84,16 @@ app.use('/alogin',alogin);
 app.use('/user', user);
 app.use('/retrieve', retrieve);
 app.use('/reset', reset);
+//后台
 app.use('/admin', admin);
+app.use('/admin_revise', admin_revise);
+app.use('/user_revise', user_revise);
+app.use('/deletes', deletes);
+app.use('/admin_add', admin_add);
+app.use('/xuser', xuser);
+app.use('/x_revise', x_revise);
+app.use('/duser', duser);
+app.use('/d_revise', d_revise);
 
 
 /// catch 404 and forwarding to error handler
