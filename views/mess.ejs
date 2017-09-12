@@ -171,7 +171,7 @@
           <form class="" action="/mess" method="post">
             <input type="hidden" name="user_id" value="<%= name %>"><br><br>
                     <h4 class="h4_qz">标题:</h4>
-                    <input type="text" required min="5" max="15" name="user_tip" class="tip_qz col-md-10"><br><br>
+                    <input type="text" required maxlength="30" name="user_tip" class="tip_qz col-md-10"><br><br>
                     <h4 class="h4_qz">问题类型:</h4>
                     <div class="may">
                       <a class="btn btn-info btn-select text-center " >
@@ -194,7 +194,7 @@
                       </a>
                     </div>
                     <h4 class="h4_qz">您的提问:</h4>
-                    <textarea name="user_quiz" id="ques" required rows="10" cols="80" ></textarea><br>
+                    <textarea name="user_quiz" id="ques" required rows="10" cols="80"  maxlength="240"></textarea><br>
                     <button type="submit"  class="btn_qz">提交</button>
 
               </form>
