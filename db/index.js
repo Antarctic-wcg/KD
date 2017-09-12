@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');//引入模块
-var url = 'mongodb://10.198.1.213:27017/KD';
+var url = 'mongodb://kd:kd@ds133004.mlab.com:33004/kd';
 mongoose.connect(url);//链接数据库
 //获取文件句柄
 var db = mongoose.connection;
