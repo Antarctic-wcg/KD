@@ -16,7 +16,8 @@ router.post('/',function(req,res){
     if(doc !== null){
       // console.log("ok");
       if(doc.password === req.body.password){
-        req.session.admin = doc.admin;
+        req.session.admin = doc.admin_id;
+        console.log(doc);
         db.user.findOne({},function(er,info){
           req.session.password = doc.password;
           assert.equal(er,null);
