@@ -17,14 +17,27 @@ var showxq = require('./routes/show-xq');
 var logout = require('./routes/logout');
 var quesList = require('./routes/quesList');
 var shou = require('./routes/shou');
+var problem = require('./routes/problem');
+var answer = require('./routes/answer');
 var xiu = require('./routes/xiu');
+var xiu_mi = require('./routes/xiu_mi');
+var xiu_bao =require('./routes/xiu_bao');
 var show_zy = require('./routes/show_zy');
 var mess = require('./routes/mess');
 var alogin = require('./routes/alogin');
 var user = require('./routes/retrieve');
 var retrieve = require('./routes/retrieve');
 var reset = require('./routes/reset');
+//后台
 var admin = require('./routes/admin');
+var admin_revise = require('./routes/revise');
+var user_revise = require('./routes/revise');
+var deletes = require('./routes/deletes');
+var admin_add = require('./routes/admin_add');
+var xuser = require('./routes/xuser');
+var x_revise = require('./routes/x_revise');
+var duser = require('./routes/duser');
+var d_revise = require('./routes/d_revise');
 
 
 var app = express();
@@ -44,7 +57,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: '12345',
     name: 'testapp',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
-    cookie: {maxAge: 80000 },  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
+    cookie: {maxAge: 80000000 },  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
     resave: false,
    saveUninitialized: true,
 }));
@@ -60,14 +73,27 @@ app.use('/show-xq', showxq);
 app.use('/logout', logout);
 app.use('/quesList', quesList);
 app.use('/show_zy',show_zy);
+app.use('/problem',problem);
+app.use('/answer',answer);
 app.use('/shou',shou);
 app.use('/xiu',xiu);
+app.use('/xiu_mi',xiu_mi);
+app.use('/xiu_bao',xiu_bao);
 app.use('/mess',mess);
 app.use('/alogin',alogin);
 app.use('/user', user);
 app.use('/retrieve', retrieve);
 app.use('/reset', reset);
+//后台
 app.use('/admin', admin);
+app.use('/admin_revise', admin_revise);
+app.use('/user_revise', user_revise);
+app.use('/deletes', deletes);
+app.use('/admin_add', admin_add);
+app.use('/xuser', xuser);
+app.use('/x_revise', x_revise);
+app.use('/duser', duser);
+app.use('/d_revise', d_revise);
 
 
 /// catch 404 and forwarding to error handler

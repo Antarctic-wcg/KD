@@ -1,0 +1,42 @@
+<%- include admin_head %>
+<form action="d_revise" method="post">
+<div class="col-md-10 content">
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%= err %></div>
+  <div class="panel-body">
+    <p class="text-center">修改回答</p>
+    <input type="hidden" name="_id" value="<%= infos._id %>">
+    <input type="hidden" name="user_id" value="<%= infos.user_id %>">
+    <input type="hidden" name="admin" value="<%= admin %>">
+  </div>
+
+
+<style>
+ td textarea{
+   width: 100%;
+ }
+</style>
+
+   <!-- Table -->
+   <table class="table">
+       <tr>
+         <td>内容</td>
+         <td class="text-center"><textarea name="contents" rows="8" cols=""><%= infos.content%></textarea></td>
+       </tr>
+     </table>
+</div>
+<style>
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+</style>
+<button class="btn btn-default col-center-block btn-info" type="submit" name="time" value="<%= infos.time %>" >修改</button>
+</div>
+</form>
+
+<%- include admin_footer %>

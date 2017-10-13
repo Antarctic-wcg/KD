@@ -1,0 +1,16 @@
+<% dat.forEach(function(ele,index){
+    dbc.forEach(function(el){
+
+       if( ele.user_id == el._id){ %>
+          <div class="row" style="margin:10px auto;background-color:#fff;padding:10px 20px;border-radius:10px;box-shadow:0 0 15px;word-wrap:break-word; word-break:normal;">
+          <p><h4><a href="/show-xq?id=<%= el._id %>" style="font-size:20px;">
+          <%= el.user_quiz %><br/>
+          <span class="btn btn-warning btn-xs">提问者:<%= el.user_id %></span>&nbsp;&nbsp;
+          <span class="btn btn-info btn-xs">分类:<%= el.user_label %></span>&nbsp;&nbsp;
+          <span class="btn btn-inverse btn-xs">时间:<%= moment(el.user_time).format('YYYY-MM-DD h:mm:ss a') %></span>&nbsp;&nbsp;
+          <span class="btn btn-primary btn-xs">标题:<%= el.user_tip %></span>
+        </a></h4></p>
+      </div>
+      <% }
+      })
+     }) %>

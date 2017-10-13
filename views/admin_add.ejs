@@ -1,0 +1,43 @@
+
+<%- include admin_head %>
+<form action="admin_add" method="post">
+<div class="col-md-10 content">
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><%= err %></div>
+  <div class="panel-body">
+    <p class="text-center">修改管理员信息</p>
+    <input type="hidden" name="admin" value="<%= admin %>">
+  </div>
+
+
+   <!-- Table -->
+   <table class="table">
+       <tr>
+         <td class="text-center">管理员名</td>
+         <td class="text-center"><input type="text" name="admin_id" value=""></td>
+       </tr>
+       <tr>
+         <td class="text-center">密码</td>
+         <td class="text-center"><input type="text" name="password" value=""></td>
+       </tr>
+       <tr class="text-center">
+         <td class="text-center">权限</td>
+         <td><input type="text" name="jurl" value=""></td>
+       </tr>
+     </table>
+</div>
+<style>
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+</style>
+<button class="btn btn-default col-center-block btn-info" type="submit" name="b" value="1" >修改</button>
+</div>
+</form>
+
+<%- include admin_footer %>
