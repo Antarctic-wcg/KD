@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon"href="images/logo.ico">
+    <link href="https://cdn.bootcss.com/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
     <title><%= title %></title>
     <style media="screen">
       *{
@@ -71,14 +72,14 @@
     <div class="box col-sm-12 col-lg-12">
       <h1>Register</h1>
       <form class="" action="input_cg" method="post">
-        <span>账号:</span><input type="text" name="user_id" value="" required><i style="color:red;">&nbsp;<%= rem %></i><br>
+        <span>账号:</span><input class="ui input" type="text" name="user_id" value="" required><i style="color:red;">&nbsp;<%= rem %></i><br>
         <span>用户名:</span><input type="text" name="name" value="" required><br>
         <span>性别:</span><input type="radio" name="sex" value="男" style="width:15px;height:15px;" checked>男&nbsp;&nbsp;&nbsp;</span><input type="radio" name="sex" value="女" style="width:15px;height:15px;">女<br>
         <span>密码:</span><input type="password" name="password" id="password" value="" required><br>
         <span>确认密码:</span><input type="password" name="password2" id="password2" value="" required><br>
         <span>邮箱:</span><input type="text" name="email" value=""><br>
         <span>电话:</span><input type="text" name="phone" value=""><br>
-        <span>密保问题:</span><select class="select" name="problem" style="height:25px;line-height:25px;">
+        <span>密保问题:</span><select class="select" name="problem" style="height:35px;line-height:35px;">
           <option value="对你影响最大的人?">对你影响最大的人?</option>
           <option value="你高中班主任名字?">你高中班主任名字?</option>
           <option value="你最喜欢的一本书是?">你最喜欢的一本书是?</option>
