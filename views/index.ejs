@@ -5,25 +5,81 @@
     <title>知晓</title>
     <%- include head %>
     <link rel="stylesheet" href="/stylesheets/index.css">
-    <script src="https://cdn.bootcss.com/moment.js/2.17.1/moment.min.js"></script>
     <script src="/javascripts/index.js" charset="utf-8"></script>
-
+    <style media="screen">
+      .pointer_nomal{
+        cursor:auto;
+      }
+      .cont{
+        margin:10px auto;
+        background-color:#fff;
+        padding:10px 20px;
+        border-radius:10px;
+        box-shadow:0 0 15px;
+        word-wrap:break-word;
+        word-break:normal;
+      }
+      .page{
+        background-color:#fff;
+        border-radius:10px;
+        box-shadow:0 0 15px;
+        margin:10px auto;
+      }
+      .page_ul{
+        margin:0;
+      }
+      .cursor_auto{
+        cursor:auto;
+      }
+      .dis_none{
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <%- include nav %>
     <div class="con">
         <div class="container">
           <div class="row col-md-10 col-md-offset-1">
+
             <div class="right col-sm-9">
                 <% data.forEach(function(ele,index){ %>
-                  <div class="row" style="margin:10px auto;background-color:#fff;padding:10px 20px;border-radius:10px;box-shadow:0 0 15px;word-wrap:break-word; word-break:normal;">
-                    <p><h4><a href="/show-xq?id=<%= ele._id %>" style="font-size:20px;"><%= ele.user_quiz %></a></h4></p>
-                  <span class="btn btn-warning btn-xs">提问者:<%= ele.user_id %></span>&nbsp;&nbsp;
-                  <span class="btn btn-info btn-xs">分类:<%= ele.user_label %></span>&nbsp;&nbsp;
-                  <span class="btn btn-inverse btn-xs">时间:<%= moment(ele.user_time).format('YYYY-MM-DD h:mm:ss a') %></span>
-                  <span class="btn btn-primary btn-xs">标题:<%= ele.user_tip %></span>&nbsp;&nbsp;
+
+                  <div class="cont row">
+                    <div class="">
+                      <h4><a href="/show-xq?id=<%= ele._id %>" style="font-size:20px;"><%= ele.user_quiz %></a></h4>
+                    </div>
+                    <div class="">
+                      <span class="btn btn-warning btn-xs pointer_nomal">提问者:<%= ele.user_id %></span>&nbsp;&nbsp;
+                      <span class="btn btn-info btn-xs pointer_nomal">分类:<%= ele.user_label %></span>&nbsp;&nbsp;
+                      <span class="btn btn-inverse btn-xs pointer_nomal">时间:<%= moment.tz(ele.user_time,'Asia/Shanghai').format('YYYY-MM-DD HH:mm:ss') %></span>
+                      <span class="btn btn-primary btn-xs pointer_nomal">标题:<%= ele.user_tip %></span>&nbsp;&nbsp;
+                    </div>
+                    <div class="">
+                      answer
+                    </div>
                   </div>
-                <% }) %>
+
+                  <% }) %>
+                  <div class="text-center">
+                      <ul class="pagination page_ul">
+                        <li style="<% if(page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>">
+                          <a href="/<%= page-1 %>" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li style="<% if(page-2<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="<%= page-2 %>"><%= page-2 %></a></li>
+                        <li style="<% if(page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="<%= page-1 %>"><%= page-1 %></a></li>
+                        <li class="active"><a><%= page %></a></li>
+                        <li><a href="<%= page+1 %>"><%= page+1 %></a></li>
+                        <li><a href="<%= page+2 %>"><%= page+2 %></a></li>
+                        <li>
+                          <a href="<%= page+1 %>" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                  </div>
 
             </div>
             <div class="left col-sm-3 hidden-xs">
