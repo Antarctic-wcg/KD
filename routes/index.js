@@ -4,23 +4,24 @@ var db = require('../db');
  var assert = require('assert');
  var moment = require('moment-timezone');
 /* GET home page. */
-router.get('/', function(req, res) {
-  console.log(456);
-  var str = req.session.name  || '';
+function findData(page,skip,limit,res,req){
   db.question_list.find({},function(err,data){
     assert.equal(err,null);
-
-    res.render('index', { title: 'KD',name : str,data:data,moment:moment,page:1});
-  }).sort({'user_time':-1}).skip(0).limit(5);
+    db.question_list.count({},function(err,count){
+      assert.equal(err,null);
+      let pageCount = Math.ceil(count/limit);
+      res.render('index', { title: 'KD',name : req.session.name  || '',data:data,moment:moment,page:page,pageCount:pageCount});
+    });
+  }).sort({'user_time':-1}).skip(skip).limit(limit);
+};
+router.get('/', function(req, res) {
+  findData(1,0,5,res,req);
 });
 router.get('/:page',function(req,res){
-  var str = req.session.name  || '';
   var limit = 5;
+  var page = parseInt(req.params.page);
   var skip = parseInt(req.params.page)*limit;
-  db.question_list.find({},function(err,data){
-    assert.equal(err,null);
-    res.render('index', { title: 'KD',name : str,data:data,moment:moment,page:parseInt(req.params.page)});
-  }).sort({'user_time':-1}).skip(skip).limit(limit);
+  findData(page,skip,limit,res,req);
 })
 
 module.exports = router;

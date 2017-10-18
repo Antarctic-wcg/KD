@@ -31,8 +31,11 @@
       .cursor_auto{
         cursor:auto;
       }
-      .dis_none{
-        display: none;
+      .margin_{
+        margin:0 0 15px;
+        background-color: #fff;
+        border-radius:10px;
+        box-shadow:0 0 15px;
       }
     </style>
   </head>
@@ -61,7 +64,7 @@
                   </div>
 
                   <% }) %>
-                  <div class="text-center">
+                  <div class="text-center margin_">
                       <ul class="pagination page_ul">
                         <li style="<% if(page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>">
                           <a href="/<%= page-1 %>" aria-label="Previous">
@@ -71,9 +74,9 @@
                         <li style="<% if(page-2<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="<%= page-2 %>"><%= page-2 %></a></li>
                         <li style="<% if(page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="<%= page-1 %>"><%= page-1 %></a></li>
                         <li class="active"><a><%= page %></a></li>
-                        <li><a href="<%= page+1 %>"><%= page+1 %></a></li>
-                        <li><a href="<%= page+2 %>"><%= page+2 %></a></li>
-                        <li>
+                        <li style="<% if(pageCount-page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="<%= page+1 %>"><%= page+1 %></a></li>
+                        <li style="<% if(pageCount-page-2<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="<%= page+2 %>"><%= page+2 %></a></li>
+                        <li style="<% if(pageCount-page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>">
                           <a href="<%= page+1 %>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                           </a>
@@ -116,6 +119,31 @@
 
     <%- include footer %>
 
+<script type="text/javascript">
+  // function fn2(){
+  //   this.age = 22;
+  // };
+  // fn2.prototype.height = 172;
+  //
+  // function fn(...a){
+  //   fn2.apply(this);
+  //   this.b = a;
+  //   this.name = 'lzc';
+  // };
+  // fn.prototype = fn2.prototype;
+  // fn.prototype.aa = 'cheng';
+  // var fn1 = new fn(123,456);
+  // fn.prototype.cc = 'zhi';
+  // console.log(fn1);
+  // console.log(fn1.age);
+  // let a = [123,'lzc'];
+  // let b = a;
+  // b.push('cheng');
+  // a.unshift(369);
+  // console.log('a',a);
+  // console.log('b',b);
+
+</script>
 
 
   </body>
