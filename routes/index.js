@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
 router.get('/:page',function(req,res){
   var limit = 5;
   var page = parseInt(req.params.page);
-  var skip = parseInt(req.params.page)*limit;
+  var skip = parseInt(req.params.page-1)*limit;
   findData(page,skip,limit,res,req);
 })
 
