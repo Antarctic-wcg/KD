@@ -142,6 +142,53 @@
   // a.unshift(369);
   // console.log('a',a);
   // console.log('b',b);
+  // 'user strict';
+  class lzc{
+    construtor(){
+      this.age = 213;
+      console.log(this.name);
+      console.log(new.target);
+    }
+    ssy(){
+      console.log(123);
+    }
+  };
+  let get = 'pp'
+  Object.assign(lzc.prototype,{
+    [get](){
+      console.log(79797);
+    }
+  })
+  let aa = new lzc();
+  const snaf = Symbol('snaf');
+  // console.log(aa);
+  num=123;
+  class Vv{
+    construtor(c){
+      this.name = c;
+    }
+    bb(){
+      console.log(999999);
+    }
+  };
+  class Aa extends Vv{
+    construtor(){
+      // super(123)
+      this.age = 123;
+    }
+    aaa(){
+      console.log(111111);
+    }
+  }
+  var cc = new Aa();
+  class A {}
+
+class B extends A {
+  constructor() {
+    // super();
+  }
+}
+  console.log(cc.name);
 
 </script>
 
