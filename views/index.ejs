@@ -67,17 +67,17 @@
                   <div class="text-center margin_">
                       <ul class="pagination page_ul">
                         <li style="<% if(page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>">
-                          <a href="/<%= page-1 %>" aria-label="Previous">
+                          <a href="/?page=<%= page-1 %>" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                           </a>
                         </li>
-                        <li style="<% if(page-2<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="<%= page-2 %>"><%= page-2 %></a></li>
-                        <li style="<% if(page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="<%= page-1 %>"><%= page-1 %></a></li>
+                        <li style="<% if(page-2<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="/?page=<%= page-2 %>"><%= page-2 %></a></li>
+                        <li style="<% if(page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="/?page=<%= page-1 %>"><%= page-1 %></a></li>
                         <li class="active"><a><%= page %></a></li>
-                        <li style="<% if(pageCount-page<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="<%= page+1 %>"><%= page+1 %></a></li>
-                        <li style="<% if(pageCount-page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="<%= page+2 %>"><%= page+2 %></a></li>
+                        <li style="<% if(pageCount-page<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="/?page=<%= page+1 %>"><%= page+1 %></a></li>
+                        <li style="<% if(pageCount-page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>"><a href="/?page=<%= page+2 %>"><%= page+2 %></a></li>
                         <li style="<% if(pageCount-page-1<=0){%> <%= 'display:none' %> <%}else{ %><%= '' %><%}%>">
-                          <a href="<%= page+1 %>" aria-label="Next">
+                          <a href="/?page=<%= page+1 %>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                           </a>
                         </li>
@@ -95,7 +95,7 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                               <%for(var i = 0;i < pageCount;i++){%>
-                                <li><a href="<%=i+1%>"><%=i+1%></a></li>
+                                <li><a href="/?page=<%=i+1%>"><%=i+1%></a></li>
                               <%}%>
                             </ul>
                           </div>

@@ -38,6 +38,7 @@ var xuser = require('./routes/xuser');
 var x_revise = require('./routes/x_revise');
 var duser = require('./routes/duser');
 var d_revise = require('./routes/d_revise');
+var flat_ui = require('./routes/flat_ui')
 
 
 var app = express();
@@ -84,6 +85,7 @@ app.use('/alogin',alogin);
 app.use('/user', user);
 app.use('/retrieve', retrieve);
 app.use('/reset', reset);
+app.use('/flat',flat_ui);
 //后台
 app.use('/admin', admin);
 app.use('/admin_revise', admin_revise);
