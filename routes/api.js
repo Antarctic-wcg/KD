@@ -6,6 +6,7 @@ var assert = require('assert');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   db.user.find({},function(err,doc){
+    res.header("Access-Control-Allow-Origin", "*");
     res.json(doc);
   })
 });
