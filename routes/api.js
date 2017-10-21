@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../db');
+var assert = require('assert');
 
-router.get('/',function(req,res){
+/* GET home page. */
+router.get('/', function(req, res, next) {
   db.user.find({},function(err,doc){
     res.json(doc);
   })
-})
-module.exprots = router;
+});
+
+module.exports = router;

@@ -28,6 +28,7 @@ var alogin = require('./routes/alogin');
 var user = require('./routes/retrieve');
 var retrieve = require('./routes/retrieve');
 var reset = require('./routes/reset');
+var api = require('./routes/api')
 //后台
 var admin = require('./routes/admin');
 var admin_revise = require('./routes/revise');
@@ -86,6 +87,7 @@ app.use('/user', user);
 app.use('/retrieve', retrieve);
 app.use('/reset', reset);
 app.use('/flat',flat_ui);
+app.use('/api',api);
 //后台
 app.use('/admin', admin);
 app.use('/admin_revise', admin_revise);
